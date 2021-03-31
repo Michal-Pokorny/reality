@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.5 on win32)" generated="20210326 05:07:09.611" rpa="false">
+<suite id="s1" name="Reality" source="C:\Users\Ashal\eclipse-workspace\reality">
+<suite id="s1-s1" name="Execution" source="C:\Users\Ashal\eclipse-workspace\reality\execution">
+<suite id="s1-s1-s1" name="Sreality" source="C:\Users\Ashal\eclipse-workspace\reality\execution\sreality.robot">
+<test id="s1-s1-s1-t1" name="Save All 1+KK Praha">
+<kw name="Open Browser and go to Page" library="keywords" type="setup">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20210326 05:07:09.915" level="INFO">Opening browser 'chrome' to base url 'https://www.sreality.cz/hledani/prodej/byty/praha?velikost=1%2Bkk&amp;bez-aukce=1'.</msg>
+<status status="PASS" starttime="20210326 05:07:09.914" endtime="20210326 05:07:14.027"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210326 05:07:14.027" endtime="20210326 05:07:14.152"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:09.914" endtime="20210326 05:07:14.153"></status>
+</kw>
+<kw name="Save Text of All Elements with Tag" library="keywords">
+<arguments>
+<arg>${property_name_css}</arg>
+</arguments>
+<kw name="Return Text List from Element List" library="keywords">
+<arguments>
+<arg>${elements_tag}</arg>
+</arguments>
+<assign>
+<var>${result_list}</var>
+</assign>
+<kw name="Get WebElements" library="Selenium2Library">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>${elements_tag}</arg>
+</arguments>
+<assign>
+<var>${element_list}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.169" level="INFO">${element_list} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="2f2a5dcc-0c9f-4b58-81e3-689f788695d7")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20210326 05:07:14.155" endtime="20210326 05:07:14.170"></status>
+</kw>
+<kw name="Get Element Count" library="Selenium2Library">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${elements_tag}</arg>
+</arguments>
+<assign>
+<var>${element_count}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.176" level="INFO">${element_count} = 21</msg>
+<status status="PASS" starttime="20210326 05:07:14.170" endtime="20210326 05:07:14.176"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${result_list}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.177" level="INFO">${result_list} = []</msg>
+<status status="PASS" starttime="20210326 05:07:14.177" endtime="20210326 05:07:14.177"></status>
+</kw>
+<kw name="${i} IN RANGE [ 0 | ${element_count} ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.179" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="2f2a5dcc-0c9f-4b58-81e3-689f788695d7")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.178" endtime="20210326 05:07:14.179"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.193" level="INFO">${text} = Prodej bytu 2+kk 58 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.179" endtime="20210326 05:07:14.193"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.193" endtime="20210326 05:07:14.193"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.178" endtime="20210326 05:07:14.193"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.195" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="e46d0b53-1563-44ea-9b88-070a9602efb7")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.194" endtime="20210326 05:07:14.195"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.217" level="INFO">${text} = Prodej bytu 1+kk 56 m² (Podkrovní)</msg>
+<status status="PASS" starttime="20210326 05:07:14.195" endtime="20210326 05:07:14.218"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.218" endtime="20210326 05:07:14.218"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.193" endtime="20210326 05:07:14.218"></status>
+</kw>
+<kw name="${i} = 2" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.219" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="eb80c7f0-0ac5-4dd0-a9a1-b79c1fb14c67")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.219" endtime="20210326 05:07:14.219"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.233" level="INFO">${text} = Prodej bytu 1+kk 32 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.219" endtime="20210326 05:07:14.233"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.234" endtime="20210326 05:07:14.234"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.219" endtime="20210326 05:07:14.234"></status>
+</kw>
+<kw name="${i} = 3" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.236" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="2be1dceb-794d-4b4a-8443-d91d656306e8")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.235" endtime="20210326 05:07:14.236"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.254" level="INFO">${text} = Prodej bytu 1+kk 44 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.236" endtime="20210326 05:07:14.254"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.255" endtime="20210326 05:07:14.255"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.235" endtime="20210326 05:07:14.256"></status>
+</kw>
+<kw name="${i} = 4" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.257" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="c4fb06bf-1f76-4784-8ed4-e46fc6d1a140")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.256" endtime="20210326 05:07:14.257"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.276" level="INFO">${text} = Prodej bytu 1+kk 23 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.257" endtime="20210326 05:07:14.276"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.276" endtime="20210326 05:07:14.277"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.256" endtime="20210326 05:07:14.277"></status>
+</kw>
+<kw name="${i} = 5" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.278" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="b731ee40-ef08-428f-8a5b-cf0f1f9e84f5")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.277" endtime="20210326 05:07:14.278"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.289" level="INFO">${text} = Prodej bytu 1+kk 26 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.278" endtime="20210326 05:07:14.289"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.289" endtime="20210326 05:07:14.289"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.277" endtime="20210326 05:07:14.289"></status>
+</kw>
+<kw name="${i} = 6" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.290" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="619ccd52-a10e-4cb9-ae43-55eaed7febed")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.290" endtime="20210326 05:07:14.290"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.304" level="INFO">${text} = Prodej bytu 1+kk 20 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.290" endtime="20210326 05:07:14.304"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.304" endtime="20210326 05:07:14.305"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.289" endtime="20210326 05:07:14.305"></status>
+</kw>
+<kw name="${i} = 7" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.305" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="8da94502-c6ce-4ac1-9c3f-2dafff49887a")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.305" endtime="20210326 05:07:14.305"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.322" level="INFO">${text} = Prodej bytu 1+kk 36 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.306" endtime="20210326 05:07:14.322"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.322" endtime="20210326 05:07:14.322"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.305" endtime="20210326 05:07:14.323"></status>
+</kw>
+<kw name="${i} = 8" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.323" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="cab20aa9-3949-4360-a500-6fd081b11eec")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.323" endtime="20210326 05:07:14.323"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.336" level="INFO">${text} = Prodej bytu 1+kk 44 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.323" endtime="20210326 05:07:14.336"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.336" endtime="20210326 05:07:14.336"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.323" endtime="20210326 05:07:14.336"></status>
+</kw>
+<kw name="${i} = 9" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.337" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="236a868d-1f49-4681-b97c-7672020e8ff6")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.337" endtime="20210326 05:07:14.337"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.354" level="INFO">${text} = Prodej bytu 1+kk 18 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.337" endtime="20210326 05:07:14.354"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.354" endtime="20210326 05:07:14.354"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.336" endtime="20210326 05:07:14.355"></status>
+</kw>
+<kw name="${i} = 10" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.355" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="40933799-bca6-47ab-9f27-89c0280e1dd7")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.355" endtime="20210326 05:07:14.355"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.382" level="INFO">${text} = Prodej bytu 1+kk 33 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.356" endtime="20210326 05:07:14.382"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.383" endtime="20210326 05:07:14.383"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.355" endtime="20210326 05:07:14.383"></status>
+</kw>
+<kw name="${i} = 11" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.385" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="f1b8611d-21f4-4318-bf46-e1b16a10044a")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.384" endtime="20210326 05:07:14.385"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.399" level="INFO">${text} = Prodej bytu 1+kk 15 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.385" endtime="20210326 05:07:14.399"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.400" endtime="20210326 05:07:14.400"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.383" endtime="20210326 05:07:14.401"></status>
+</kw>
+<kw name="${i} = 12" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.402" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="54f8035e-8049-4a60-8cda-0007183560ad")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.401" endtime="20210326 05:07:14.402"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.418" level="INFO">${text} = Prodej bytu 1+kk 15 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.402" endtime="20210326 05:07:14.419"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.419" endtime="20210326 05:07:14.419"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.401" endtime="20210326 05:07:14.420"></status>
+</kw>
+<kw name="${i} = 13" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.420" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="4a1d7d1b-7f86-4505-9f5f-cebe3b2c1fcd")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.420" endtime="20210326 05:07:14.420"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.432" level="INFO">${text} = Prodej bytu 1+kk 15 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.421" endtime="20210326 05:07:14.432"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.433" endtime="20210326 05:07:14.434"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.420" endtime="20210326 05:07:14.434"></status>
+</kw>
+<kw name="${i} = 14" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.435" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="c255cb8b-f80a-43f9-aadb-25737ed89b9d")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.434" endtime="20210326 05:07:14.435"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.450" level="INFO">${text} = Prodej bytu 1+kk 36 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.435" endtime="20210326 05:07:14.450"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.450" endtime="20210326 05:07:14.451"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.434" endtime="20210326 05:07:14.451"></status>
+</kw>
+<kw name="${i} = 15" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.451" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="17bc41d8-712a-4da9-8a18-61747df104b5")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.451" endtime="20210326 05:07:14.451"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.464" level="INFO">${text} = Prodej bytu 1+kk 22 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.451" endtime="20210326 05:07:14.464"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.464" endtime="20210326 05:07:14.465"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.451" endtime="20210326 05:07:14.465"></status>
+</kw>
+<kw name="${i} = 16" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.466" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="fb25455f-222f-47a0-a942-8a15e6f3f1d5")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.465" endtime="20210326 05:07:14.466"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.479" level="INFO">${text} = Prodej bytu 1+kk 80 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.466" endtime="20210326 05:07:14.479"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.479" endtime="20210326 05:07:14.480"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.465" endtime="20210326 05:07:14.480"></status>
+</kw>
+<kw name="${i} = 17" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.481" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="1fd45ab4-7fc7-43ef-af73-4c383e230aa0")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.480" endtime="20210326 05:07:14.481"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.493" level="INFO">${text} = Prodej bytu 1+kk 46 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.482" endtime="20210326 05:07:14.494"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.494" endtime="20210326 05:07:14.495"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.480" endtime="20210326 05:07:14.495"></status>
+</kw>
+<kw name="${i} = 18" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.495" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="d75a5f14-32dd-42de-8122-7f82d0f78831")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.495" endtime="20210326 05:07:14.495"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.506" level="INFO">${text} = Prodej bytu 1+kk 33 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.496" endtime="20210326 05:07:14.506"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.506" endtime="20210326 05:07:14.507"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.495" endtime="20210326 05:07:14.507"></status>
+</kw>
+<kw name="${i} = 19" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.508" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="60f3fb5e-85e4-4389-8ade-79cdbd0b377b")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.507" endtime="20210326 05:07:14.508"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.521" level="INFO">${text} = Prodej bytu 1+kk 39 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.509" endtime="20210326 05:07:14.521"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.521" endtime="20210326 05:07:14.521"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.507" endtime="20210326 05:07:14.521"></status>
+</kw>
+<kw name="${i} = 20" type="foritem">
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${element_list}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${current_element}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.522" level="INFO">${current_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7fc6619d0213083b075eef9870c3d95a", element="a888cdbc-3a8d-492c-b773-02d36e8b0c5b")&gt;</msg>
+<status status="PASS" starttime="20210326 05:07:14.522" endtime="20210326 05:07:14.522"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${current_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.538" level="INFO">${text} = Prodej bytu 1+kk 32 m²</msg>
+<status status="PASS" starttime="20210326 05:07:14.523" endtime="20210326 05:07:14.538"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${result_list}</arg>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.538" endtime="20210326 05:07:14.539"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.521" endtime="20210326 05:07:14.539"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.177" endtime="20210326 05:07:14.539"></status>
+</kw>
+<msg timestamp="20210326 05:07:14.540" level="INFO">${result_list} = ['Prodej bytu 2+kk 58 m²', 'Prodej bytu 1+kk 56 m² (Podkrovní)', 'Prodej bytu 1+kk 32 m²', 'Prodej bytu 1+kk 44 m²', 'Prodej bytu 1+kk 23 m²', 'Prodej bytu 1+kk 26 m²', 'Prodej bytu 1+kk 20 m²', 'Prod...</msg>
+<status status="PASS" starttime="20210326 05:07:14.154" endtime="20210326 05:07:14.540"></status>
+</kw>
+<kw name="Save All Results" library="keywords">
+<arguments>
+<arg>${result_list}</arg>
+</arguments>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${result_csv}</arg>
+</arguments>
+<msg timestamp="20210326 05:07:14.541" level="INFO" html="yes">Created file '&lt;a href="file://C:\Users\Ashal\eclipse-workspace\reality\results\list.csv"&gt;C:\Users\Ashal\eclipse-workspace\reality\results\list.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210326 05:07:14.540" endtime="20210326 05:07:14.541"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${list}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20210326 05:07:14.542" level="INFO">${data} = [['Prodej bytu 2+kk 58 m²', 'Prodej bytu 1+kk 56 m² (Podkrovní)', 'Prodej bytu 1+kk 32 m²', 'Prodej bytu 1+kk 44 m²', 'Prodej bytu 1+kk 23 m²', 'Prodej bytu 1+kk 26 m²', 'Prodej bytu 1+kk 20 m²', 'Pro...</msg>
+<status status="PASS" starttime="20210326 05:07:14.542" endtime="20210326 05:07:14.542"></status>
+</kw>
+<kw name="Append To Csv File" library="CSVLibrary">
+<doc>This keyword will append data to a new or existing CSV file.</doc>
+<arguments>
+<arg>${result_csv}</arg>
+<arg>${data}</arg>
+</arguments>
+<status status="PASS" starttime="20210326 05:07:14.542" endtime="20210326 05:07:14.543"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.540" endtime="20210326 05:07:14.543"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:14.153" endtime="20210326 05:07:14.544"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210326 05:07:14.545" endtime="20210326 05:07:16.713"></status>
+</kw>
+<status status="PASS" starttime="20210326 05:07:09.913" endtime="20210326 05:07:16.713" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210326 05:07:09.711" endtime="20210326 05:07:16.714"></status>
+</suite>
+<status status="PASS" starttime="20210326 05:07:09.708" endtime="20210326 05:07:16.716"></status>
+</suite>
+<status status="PASS" starttime="20210326 05:07:09.688" endtime="20210326 05:07:16.717"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Reality">Reality</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Execution">Reality.Execution</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="Sreality">Reality.Execution.Sreality</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
