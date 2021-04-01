@@ -1,17 +1,20 @@
 *** Settings ***
 Library    String
 Library    Collections
+Library    OperatingSystem
 Library    Selenium2Library
-Test Setup    Open Browser and go to Page
+Library    CSVLibrary
+Test Setup    Open Browser with no Page
 Test Teardown    Close Browser
 Resource    ../resources/variables.robot
 Resource    ../resources/keywords.robot                
 
 *** Test Cases ***
-Print All 1+KK Praha
+Print All Searched Links
     [Tags]  Print
-    Print Text of All Elements with Tag    ${property_name_css}
-    
-Save All 1+KK Praha
-    [Tags]  Save
-    Save Text of All Elements with Tag    ${property_name_css}
+    ${search_list}=    Iterate All Searched Pages and Return Links    ${search}    1
+    Log List    ${search_list}
+    ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}
+    Log List    ${variable_list}
+    Csv File From Associative    ${result_csv}    ${variable_list}
+      
