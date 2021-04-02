@@ -1,0 +1,165 @@
+{
+	"url":"https://www.sreality.cz",
+	"search_limit": 1,
+	"result_path":"results",
+	"custom_timestamp":"%Y%m%d_%H%M%S",
+	"search":[
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=1%2Bkk&bez-aukce=1",
+			"desc":"1+KK_Praha"			
+		}
+	],
+	"property_variables":[
+		{
+		"name":"Název",
+		"locator":"css:.property-title .name"
+		},
+		{
+		"name":"Adresa",
+		"locator":"css:.property-title .location-text"
+		},
+		{
+		"name":"Cena",
+		"locator":"css:.property-title .norm-price"
+		},
+		{
+		"name":"Popis",
+		"locator":"css:.description"
+		},
+		{
+		"name":"Kontakt",
+		"locator":"css:.seller-name"
+		},
+		{
+		"name":"Realitní kancelář",
+		"locator":"css:.info .name"
+		},
+		{
+		"name":"Realitní kancelář - adresa",
+		"locator":"css:.info .address"
+		},
+		{
+		"name":"Celková cena",
+		"locator":"//label[.='Celková cena:']/following-sibling::strong"
+		},
+		{
+		"name":"Poznámka k ceně",
+		"locator":"//label[.='Poznámka k ceně:']/following-sibling::strong"
+		},
+		{
+		"name":"ID zakázky",
+		"locator":"//label[.='ID zakázky:']/following-sibling::strong"
+		},
+		{
+		"name":"Aktualizace",
+		"locator":"//label[.='Aktualizace:']/following-sibling::strong"
+		},
+		{
+		"name":"Stavba",
+		"locator":"//label[.='Stavba:']/following-sibling::strong"
+		},
+		{
+		"name":"Stav objektu",
+		"locator":"//label[.='Stav objektu:']/following-sibling::strong"
+		},
+		{
+		"name":"Vlastnictví",
+		"locator":"//label[.='Vlastnictví:']/following-sibling::strong"
+		},
+		{
+		"name":"Umístění objektu",
+		"locator":"//label[.='Umístění objektu:']/following-sibling::strong"
+		},
+		{
+		"name":"Podlaží",
+		"locator":"//label[.='Podlaží:']/following-sibling::strong"
+		},
+		{
+		"name":"Užitná plocha",
+		"locator":"//label[.='Užitná plocha:']/following-sibling::strong"
+		},
+		{
+		"name":"Plocha podlahová",
+		"locator":"//label[.='Plocha podlahová:']/following-sibling::strong"
+		},
+		{
+		"name":"Plocha zahrady",
+		"locator":"//label[.='Plocha zahrady:']/following-sibling::strong"
+		},
+		{
+		"name":"Balkón",
+		"locator":"//label[.='Balkón:']/following-sibling::strong"
+		},
+		{
+		"name":"Lodžie",
+		"locator":"//label[.='Lodžie:']/following-sibling::strong"
+		},
+		{
+		"name":"Sklep",
+		"locator":"//label[.='Sklep:']/following-sibling::strong"
+		},
+		{
+		"name":"Parkování",
+		"locator":"//label[.='Parkování:']/following-sibling::strong"
+		},
+		{
+		"name":"Garáž",
+		"locator":"//label[.='Garáž:']/following-sibling::strong"
+		},
+		{
+		"name":"Voda",
+		"locator":"//label[.='Voda:']/following-sibling::strong"
+		},
+		{
+		"name":"Topení",
+		"locator":"//label[.='Topení:']/following-sibling::strong"
+		},
+		{
+		"name":"Rok kolaudace",
+		"locator":"//label[.='Rok kolaudace:']/following-sibling::strong"
+		},
+		{
+		"name":"Telekomunikace",
+		"locator":"//label[.='Telekomunikace:']/following-sibling::strong"
+		},
+		{
+		"name":"Elektřina",
+		"locator":"//label[.='Elektřina:']/following-sibling::strong"
+		},
+		{
+		"name":"Doprava",
+		"locator":"//label[.='Doprava:']/following-sibling::strong"
+		},	
+		{
+		"name":"Energetická náročnost budovy",
+		"locator":"//label[.='Energetická náročnost budovy:']/following-sibling::strong"
+		},		
+		{
+		"name":"Odpad",
+		"locator":"//label[.='Odpad:']/following-sibling::strong"
+		},		
+		{
+		"name":"Komunikace",
+		"locator":"//label[.='Komunikace:']/following-sibling::strong"
+		},		
+		{
+		"name":"Ukazatel energetické náročnosti budovy",
+		"locator":"//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong"
+		},		
+		{
+		"name":"Vybavení",
+		"locator":"//label[.='Vybavení:']/following-sibling::strong"
+		},		
+		{
+		"name":"Bezbariérový",
+		"locator":"//label[.='Bezbariérový:']/following-sibling::strong"
+		},
+		{
+		"name":"Výtah",
+		"locator":"//label[.='Výtah:']/following-sibling::strong"
+		},		
+		{
+		"name":"URL"
+		}
+	]
+}
