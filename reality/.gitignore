@@ -1,7 +1,10 @@
 /libspecs/
+/libraries/__pycache__/
 /screenshots/
 /results/
 /python/
 log.html
 output.xml
 report.html
+.project
+.pydevproject
