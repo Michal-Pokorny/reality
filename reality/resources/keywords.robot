@@ -30,11 +30,11 @@ Return Attribute List from Element List
     [arguments]    ${elements_tag}    ${elements_attribute}    ${start}=0
     ${element_list}=    Get WebElements    ${elements_tag}
     ${result_list}=    Create List
-    ${i}=    Set Variable    0    
-    FOR    ${element}    IN    @{element_list}
+    ${element_count}=    Get Length    ${element_list}     
+    FOR    ${i}    IN RANGE    0    ${element_count}
+        ${element}=    Get From List    ${element_list}    ${i}
         ${attribute}=    Get Element Attribute    ${element}    ${elements_attribute}
-        Run Keyword If    ${i}>=${start}    Append To List    ${result_list}    ${attribute}
-        ${i}=    Evaluate    ${i}+1    
+        Run Keyword If    ${i}>=${start}    Append To List    ${result_list}    ${attribute}    
     END
     [return]    ${result_list}        
     
@@ -43,7 +43,7 @@ Get Total Pages
     Go to nth searched page    ${url}    ${search}    1    ${paging_current_css}
     ${paging_total_text}=    Get Text    ${paging_total_tag}
     ${paging_total_num}=    Convert to Integer    ${paging_total_text}
-    ${paging_count}=    Evaluate    ${paging_total_num}/${paging_num}+0.5
+    ${paging_count}=    Evaluate    ${paging_total_num}/${paging_num}+0.99
     ${result}=    Convert to Integer    ${paging_count}
     [return]    ${result}
     
@@ -97,11 +97,12 @@ Iterate All Searched Pages and Return Links
     [arguments]    ${url}    ${search}    ${search_limit}
     ${page_count}=    Get Total Pages    ${url}    ${search}    ${paging_count_css}    ${paging}
     ${result_list}=    Create List    
-    FOR    ${i}    IN RANGE    1    ${page_count}
-        Go to nth searched page    ${url}    ${search}    ${i}    ${paging_current_css}
+    FOR    ${i}    IN RANGE    0    ${page_count}
+        ${n}=    Evaluate    ${i}+1
+        Go to nth searched page    ${url}    ${search}    ${n}    ${paging_current_css}
         ${midresult_list}=    Return Attribute List from Element List    ${property_link_css}    ${property_link_attribute}    1
         ${result_list}=    Combine Lists    ${result_list}    ${midresult_list}            
-        Exit For Loop If    ${i} == ${search_limit}
+        Exit For Loop If    ${n} == ${search_limit}
     END
     ${result_list}=    Remove Duplicates    ${result_list}
     [return]    ${result_list}
