@@ -1,0 +1,8 @@
+version: '3'
+services:
+  robot:
+    build:
+      context: '.'
+      dockerfile: './dockerfile'
+    volumes:
+      - d:/git/reality:/robot

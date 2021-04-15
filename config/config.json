@@ -7,6 +7,50 @@
 		{
 			"url":"/hledani/prodej/byty/praha?velikost=1%2Bkk&bez-aukce=1",
 			"desc":"1+KK_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=1%2B1&bez-aukce=1",
+			"desc":"1+1_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=2%2Bkk&bez-aukce=1",
+			"desc":"2+KK_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=2%2B1&bez-aukce=1",
+			"desc":"2+1_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=3%2Bkk&bez-aukce=1",
+			"desc":"3+KK_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=3%2B1&bez-aukce=1",
+			"desc":"3+1_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=4%2Bkk&bez-aukce=1",
+			"desc":"4+KK_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=4%2B1&bez-aukce=1",
+			"desc":"4+1_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=5%2Bkk&bez-aukce=1",
+			"desc":"5+KK_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=5%2B1&bez-aukce=1",
+			"desc":"5+1_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=6-a-vice&bez-aukce=1",
+			"desc":"6+_Praha"			
+		},
+		{
+			"url":"/hledani/prodej/byty/praha?velikost=atypicky&bez-aukce=1",
+			"desc":"Atypicky_Praha"			
 		}
 	],
 	"property_variables":[
