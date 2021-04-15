@@ -111,8 +111,8 @@ Execute Single Search and Save Into CSV
 Save Search Result Into CSV
     [arguments]    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}
     ${result_path}=    Config Return Variable    result_path
-    ${result_csv}=    Catenate    SEPARATOR=    ${result_path}    /    ${search_desc}    _    ${starttime}    .csv    
-    Write Into Csv File    ${result_csv}    ${variable_header}    ${variable_list}                
+    ${result_csv}=    Catenate    SEPARATOR=    ${search_desc}    _    ${starttime}    .csv    
+    Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}                
     
 Iterate All Searched Pages and Return Links
     [arguments]    ${url}    ${search}    ${search_limit}
