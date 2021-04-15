@@ -10,8 +10,14 @@ Resource    variables.robot
 
 *** Keywords ***
 Open Browser with no Page
+    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_argument    test-type
+    Call Method    ${chrome_options}    add_argument    --disable-extensions
+    Call Method    ${chrome_options}    add_argument    --headless
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Create Webdriver    Chrome    chrome_options=${chrome_options}
     Set Screenshot Directory    screenshots
-    Open Browser    about:blank    ${browser}
     Maximize Browser Window           
    
 Return nth searched page
@@ -85,7 +91,22 @@ Iterate All Searches and Save Into CSV
         ${search_list}=    Iterate All Searched Pages and Return Links    ${url}    ${search}    ${search_limit}
         ${variable_list}=    Iterate Pages from List and Return Variables    ${url}    ${search_list}    ${variables_tags_list}        
         Save Search Result Into CSV    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}                
-    END        
+    END
+    
+Execute Single Search and Save Into CSV
+    [arguments]    ${starttime}    ${i}
+    ${url}=    Config Return Variable    url
+    ${search_limit}=    Config Return Variable    search_limit
+    ${variable_header}=    Return Property Variable Names
+    ${variables_tags_list}=    Return Property Variable Tags
+    ${search_url_list}=    Return Search Strings
+    ${search_desc_list}=    Return Search Descriptions
+    ${search_count}=    Get Length    ${search_url_list}            
+    ${search}=    Get From List    ${search_url_list}    ${i}
+    ${search_desc}=    Get From List    ${search_desc_list}    ${i}        
+    ${search_list}=    Iterate All Searched Pages and Return Links    ${url}    ${search}    ${search_limit}
+    ${variable_list}=    Iterate Pages from List and Return Variables    ${url}    ${search_list}    ${variables_tags_list}        
+    Save Search Result Into CSV    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}                      
 
 Save Search Result Into CSV
     [arguments]    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}
