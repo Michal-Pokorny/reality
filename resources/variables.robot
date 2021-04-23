@@ -10,7 +10,7 @@ ${property_assert_css}    css:.property-title
 ${auction_type}    set_from_parameter
 ${realty}    set_from_parameter
 ${location}    set_from_parameter
-${size}    1%2Bkk
+${size}    set_from_parameter
 ${starttime}    set_during_execution
 ${url}    set_from_config
 ${search_limit}    set_from_config

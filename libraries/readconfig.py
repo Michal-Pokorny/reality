@@ -22,6 +22,7 @@ def config_return_search_string(type, realty, location="all", size="all", option
         search_string += "/" + location
     search_string += "?"
     if size != "all":
+        size = size.replace("+", "%2B")
         search_string += "velikost=" + size + "&"
     if optional:
         search_string += optional
