@@ -21,13 +21,13 @@ Open Browser with no Page
     Maximize Browser Window           
    
 Return nth searched page
-    [arguments]    ${url}    ${search}    ${n}
+    [arguments]    ${search}    ${n}
     ${url_result}=    Catenate    SEPARATOR=    ${url}    ${search}    &strana=    ${n}        
     [return]    ${url_result}    
 
 Go to nth searched page
-    [arguments]    ${url}    ${search}    ${n}    ${element_tag}
-    ${search_url}=    Return nth searched page    ${url}    ${search}    ${n}    
+    [arguments]    ${search}    ${n}    ${element_tag}
+    ${search_url}=    Return nth searched page    ${search}    ${n}    
     Go To    ${search_url}
     ${s}=    Convert to String    ${n}    
     Wait Until Element Contains    ${element_tag}    ${s}            
@@ -45,8 +45,8 @@ Return Attribute List from Element List
     [return]    ${result_list}        
     
 Get Total Pages
-    [arguments]    ${url}    ${search}    ${paging_total_tag}    ${paging_num}
-    Go to nth searched page    ${url}    ${search}    1    ${paging_current_css}
+    [arguments]    ${search}    ${paging_total_tag}    ${paging_num}
+    Go to nth searched page    ${search}    1    ${paging_current_css}
     ${paging_total_text}=    Get Text    ${paging_total_tag}
     ${paging_total_num}=    Convert to Integer    ${paging_total_text}
     ${paging_count}=    Evaluate    ${paging_total_num}/${paging_num}+0.99
@@ -77,50 +77,56 @@ Log Timeout Error
     Log    ${error_message}    WARN
 
 Iterate All Searches and Save Into CSV
-    [arguments]    ${starttime}
-    ${url}=    Config Return Variable    url
-    ${search_limit}=    Config Return Variable    search_limit
-    ${variable_header}=    Return Property Variable Names
-    ${variables_tags_list}=    Return Property Variable Tags
     ${search_url_list}=    Return Search Strings
     ${search_desc_list}=    Return Search Descriptions
     ${search_count}=    Get Length    ${search_url_list}            
     FOR    ${i}    IN RANGE    ${search_count}
         ${search}=    Get From List    ${search_url_list}    ${i}
         ${search_desc}=    Get From List    ${search_desc_list}    ${i}        
-        ${search_list}=    Iterate All Searched Pages and Return Links    ${url}    ${search}    ${search_limit}
-        ${variable_list}=    Iterate Pages from List and Return Variables    ${url}    ${search_list}    ${variables_tags_list}        
-        Save Search Result Into CSV    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}                
+        ${search_list}=    Iterate All Searched Pages and Return Links    ${search}
+        ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
+        Save Search Result Into CSV    ${search_desc}    ${variable_list}                
     END
     
 Execute Single Search and Save Into CSV
-    [arguments]    ${starttime}    ${i}
-    ${url}=    Config Return Variable    url
-    ${search_limit}=    Config Return Variable    search_limit
-    ${variable_header}=    Return Property Variable Names
-    ${variables_tags_list}=    Return Property Variable Tags
+    [arguments]    ${i}
     ${search_url_list}=    Return Search Strings
     ${search_desc_list}=    Return Search Descriptions
     ${search_count}=    Get Length    ${search_url_list}            
     ${search}=    Get From List    ${search_url_list}    ${i}
     ${search_desc}=    Get From List    ${search_desc_list}    ${i}        
-    ${search_list}=    Iterate All Searched Pages and Return Links    ${url}    ${search}    ${search_limit}
-    ${variable_list}=    Iterate Pages from List and Return Variables    ${url}    ${search_list}    ${variables_tags_list}        
-    Save Search Result Into CSV    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}                      
+    ${search_list}=    Iterate All Searched Pages and Return Links    ${search}
+    ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
+    Save Search Result Into CSV    ${search_desc}    ${variable_list}                      
+
+Execute Parametrized Search and Save Into CSV
+    ${search}=    Return Parametrized Search URL
+    ${search_desc}=    Return Parametrized Description    
+    ${search_list}=    Iterate All Searched Pages and Return Links    ${search}
+    ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
+    Save Search Result Into CSV    ${search_desc}    ${variable_list}   
+
+Return Parametrized Search URL
+    ${search}    Config Return Search String    ${auction_type}    ${realty}    ${location}    ${size}
+    [return]    ${search}
+    
+Return Parametrized Description
+    ${desc}=    Catenate    SEPARATOR=_    ${auction_type}    ${realty}    ${location}    ${size}
+    [return]    ${desc}   
 
 Save Search Result Into CSV
-    [arguments]    ${search_desc}    ${starttime}    ${variable_header}    ${variable_list}
+    [arguments]    ${search_desc}    ${variable_list}
     ${result_path}=    Config Return Variable    result_path
     ${result_csv}=    Catenate    SEPARATOR=    ${search_desc}    _    ${starttime}    .csv    
     Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}                
     
 Iterate All Searched Pages and Return Links
-    [arguments]    ${url}    ${search}    ${search_limit}
-    ${page_count}=    Get Total Pages    ${url}    ${search}    ${paging_count_css}    ${paging}
+    [arguments]    ${search}
+    ${page_count}=    Get Total Pages    ${search}    ${paging_count_css}    ${paging}
     ${result_list}=    Create List    
     FOR    ${i}    IN RANGE    0    ${page_count}
         ${n}=    Evaluate    ${i}+1
-        Go to nth searched page    ${url}    ${search}    ${n}    ${paging_current_css}
+        Go to nth searched page    ${search}    ${n}    ${paging_current_css}
         ${midresult_list}=    Return Attribute List from Element List    ${property_link_css}    ${property_link_attribute}    1
         ${result_list}=    Combine Lists    ${result_list}    ${midresult_list}            
         Exit For Loop If    ${n} == ${search_limit}
@@ -129,26 +135,25 @@ Iterate All Searched Pages and Return Links
     [return]    ${result_list}
     
 Iterate Pages from List and Return Variables
-    [arguments]    ${url}    ${search_list}    ${variables_tags_list}
+    [arguments]    ${search_list}
     ${property_list}=    Create List    
     FOR    ${search}    IN    @{search_list}
         ${search_url}=    Catenate    SEPARATOR=    ${url}    ${search}
         Go To    ${search_url}
         ${pass}=    Check for Errors
         Continue For Loop If    ${pass}=='false'            
-        ${variables_list}=    Return Property Variable List    ${search_url}    ${variables_tags_list}            
+        ${variables_list}=    Return Property Variable List    ${search_url}            
         Append To List    ${property_list}    ${variables_list}       
     END
     [return]    ${property_list}
     
 Return Property Variable List
-    [arguments]    ${search_url}    ${variables_tags_list}
-    ${variables_list}=    Iterate Variables and Return List    ${variables_tags_list}
+    [arguments]    ${search_url}
+    ${variables_list}=    Iterate Variables and Return List
     Append To List    ${variables_list}    ${search_url}
     [return]    ${variables_list} 
     
 Iterate Variables and Return List
-    [arguments]    ${variables_tags_list}        
     ${variables_list}=    Create List    
     FOR    ${variable_tag}    IN    @{variables_tags_list}
         ${text_count}=    Get Element Count    ${variable_tag} 
@@ -174,12 +179,26 @@ Return Checkmark Value
     ${tag_cross_count}=    Get Element Count    ${variable_tag_cross}
     ${checkmark_value}=    Set Variable If    ${tag_ok_count}>0    True
     ...    ${tag_cross_count}>0    False
-    [return]    ${checkmark_value}                 
+    [return]    ${checkmark_value}
+    
+Set Test Variables from Config
+    ${config_url}=    Config Return Variable    url
+    Set Test Variable    ${url}    ${config_url}
+    ${config_search_limit}=    Config Return Variable    search_limit
+    Set Test Variable    ${search_limit}    ${config_search_limit}
+    ${config_variable_header}=    Return Property Variable Names
+    Set Test Variable    ${variable_header}    ${config_variable_header}
+    ${config_variables_tags_list}=    Return Property Variable Tags
+    Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}                 
 
 Get Custom Timestamp
     ${custom_timestamp}=    Config Return Variable    custom_timestamp
     ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
-    [return]    ${timestamp}        
+    [return]    ${timestamp}
+    
+Set Custom Timestamp
+    ${timestamp}=    Get Custom Timestamp
+    Set Test Variable    ${starttime}    ${timestamp}            
     
 Return Property Variable Tags
     ${variables_tags}=    Config Return Variable List    property_variables    locator

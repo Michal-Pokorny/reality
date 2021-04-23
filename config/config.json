@@ -3,6 +3,30 @@
 	"search_limit": 1,
 	"result_path":"results",
 	"custom_timestamp":"%Y%m%d_%H%M%S",
+	"search_base":"/hledani",
+	"search_optional_default":"bez-aukce=1",
+	"search_options":{
+			"type":["prodej", "pronajem", "drazby", "projekt"],
+			"realty":["byty", "domy", "pozemky", "komercni", "ostatni"],
+			"location":[
+				"praha", 
+				"stredocesky-kraj", 
+				"ustecky-kraj", 
+				"karlovarsky-kraj",
+				"plzensky-kraj",
+				"jihocesky-kraj",
+				"vysocina-kraj",
+				"pardubicky-kraj",
+				"kralovehradecky-kraj",
+				"liberecky-kraj",
+				"olomoucky-kraj",
+				"moravskoslezsky-kraj",
+				"zlinsky-kraj",
+				"jihomoravsky-kraj"],
+			"size":{
+				"byty":["1%2Bkk","1%2B1","2%2Bkk","2%2B1","3%2Bkk","3%2B1","4%2Bkk","4%2B1","5%2Bkk","5%2B1","6-a-vice","atypicky"]
+			}			
+	},
 	"search":[
 		{
 			"url":"/hledani/prodej/byty/praha?velikost=1%2Bkk&bez-aukce=1",

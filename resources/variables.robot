@@ -6,4 +6,13 @@ ${paging}    20
 ${paging_current_css}    css:.paging .paging-full .active
 ${property_link_css}    css:.dir-property-list .property h2 .title
 ${property_link_attribute}    ng-href
-${property_assert_css}    css:.property-title 
+${property_assert_css}    css:.property-title
+${auction_type}    set_from_parameter
+${realty}    set_from_parameter
+${location}    set_from_parameter
+${size}    1%2Bkk
+${starttime}    set_during_execution
+${url}    set_from_config
+${search_limit}    set_from_config
+${variable_header}    set_from_config
+${variables_tags_list}    set_from_config 
