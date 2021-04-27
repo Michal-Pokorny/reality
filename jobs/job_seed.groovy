@@ -12,7 +12,7 @@ pipelineJob('demo1') {
         activeChoiceReactiveParam('Size') {
             choiceType('SINGLE_SELECT')
             groovyScript {
-                script('
+                script('''
             def choices
 			switch(Realty){
     		case "byty":
@@ -34,7 +34,7 @@ pipelineJob('demo1') {
         		choices = ["All"]
         		break
 			}
-			return choices')
+			return choices''')
                 fallbackScript('"All"')
             }
             referencedParameter('Realty')
