@@ -1,17 +1,14 @@
 pipelineJob('demo1') {
 	properties([
   		parameters([
-  			choice(
-  				name: 'Type', 
-  				choices: ['prodej','pronajem','drazby','projekt']
+  			choiceParam(
+  				'Type', ['prodej','pronajem','drazby','projekt']
   			),        
-        	choice(
-        		name: 'Realty', 
-        		choices: ['byty','domy','pozemky','komercni','ostatni']
+        	choiceParam(
+        		'Realty', ['byty','domy','pozemky','komercni','ostatni']
         	),        
-        	choice(
-        		name: 'Location', 
-        		choices: ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
+        	choiceParam(
+        		'Location', ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
         	),                        
     		[
     		$class: 'ChoiceParameter',
