@@ -1,9 +1,18 @@
 pipelineJob('demo1') {
 	properties([
   		parameters([
-  			choice(name: 'Type', choices: ['prodej','pronajem','drazby','projekt']),        
-        	choice(name: 'Realty', choices: ['byty','domy','pozemky','komercni','ostatni']),        
-        	choice(name: 'Location', choices: ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']),                        
+  			choice(
+  				name: 'Type', 
+  				choices: ['prodej','pronajem','drazby','projekt']
+  			),        
+        	choice(
+        		name: 'Realty', 
+        		choices: ['byty','domy','pozemky','komercni','ostatni']
+        	),        
+        	choice(
+        		name: 'Location', 
+        		choices: ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
+        	),                        
     		[
     		$class: 'ChoiceParameter',
       		choiceType: 'PT_SINGLE_SELECT',
@@ -14,7 +23,10 @@ pipelineJob('demo1') {
         		scriptlerScriptId:'active_choices_size.groovy'
       			]
    			],
-   			string(name: 'Recipients', description: 'Sends E-mail with results to recipient(s)')
+   			string(
+   				name: 'Recipients', 
+   				description: 'Sends E-mail with results to recipient(s)'
+   			)
  		])
 	])
 
@@ -57,7 +69,7 @@ pipelineJob('demo1') {
             }
         }
     }
-}
+	}
 }
 
 
