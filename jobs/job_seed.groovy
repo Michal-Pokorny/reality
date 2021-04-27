@@ -1,34 +1,21 @@
-pipelineJob('demo1') {
-	properties([
-  		parameters([
-  			choiceParam(
-  				'Type', ['prodej','pronajem','drazby','projekt']
-  			),        
-        	choiceParam(
-        		'Realty', ['byty','domy','pozemky','komercni','ostatni']
-        	),        
-        	choiceParam(
-        		'Location', ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
-        	),                        
-    		[
-    		$class: 'ChoiceParameter',
-      		choiceType: 'PT_SINGLE_SELECT',
-      		name: 'Size',
-      		referencedParameters: 'Realty',
-      		script: [
-        		$class: 'ScriptlerScript',
-        		scriptlerScriptId:'active_choices_size.groovy'
-      			]
-   			],
-   			string(
-   				name: 'Recipients', 
-   				description: 'Sends E-mail with results to recipient(s)'
-   			)
- 		])
-	])
-
+pipelineJob('demo1') {	
     pipeline {
-    agent any    
+    agent any
+    
+    parameters{
+    	choiceParam(
+  			'Type', ['prodej','pronajem','drazby','projekt']
+  		)        
+        choiceParam(
+        	'Realty', ['byty','domy','pozemky','komercni','ostatni']
+        )        
+        choiceParam(
+        	'Location', ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
+        )                        
+   		stringParam(
+   			'Recipients', description: 'Sends E-mail with results to recipient(s)'
+   		)
+    }    
 
     stages {
         stage('Build') {
