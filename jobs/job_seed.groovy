@@ -49,7 +49,7 @@ pipelineJob('demo1') {
             scm {
                 git {
                     remote {
-                        github('https://github.com/Michal-Pokorny/reality')
+                        github('Michal-Pokorny/reality')
                     }
                 }
             }
