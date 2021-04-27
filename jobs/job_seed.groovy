@@ -10,7 +10,7 @@ pipelineJob('demo1') {
         	'Location', ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
         )                        
    		stringParam(
-   			'Recipients', description: 'Sends E-mail with results to recipient(s)'
+   			'Recipients', 'Sends E-mail with results to recipient(s)'
    		)
     } 
     
