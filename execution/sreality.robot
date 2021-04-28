@@ -26,6 +26,13 @@ Save Single Searched Link
     
 Save Parametrized Search
     [Tags]    Param
+    Set Test Variables from Config
+    Execute Parametrized Search and Save Into CSV
+    
+Save Test Parametrized Search
+    [Tags]    Param_Test
     Set Custom Timestamp
     Set Test Variables from Config
-    Execute Parametrized Search and Save Into CSV              
+    Set Constant Test Variables 
+    Execute Parametrized Search and Save Into CSV
+                  
