@@ -1,4 +1,4 @@
-pipelineJob('demo1') {	 
+pipelineJob('SReality - Parameters') {	 
     parameters{
     	choiceParam(
   			'Type', ['prodej','pronajem','drazby','projekt']
@@ -41,6 +41,9 @@ return choices
         }                        
    		stringParam(
    			'Recipients', '', 'Sends E-mail with results to recipient(s)'
+   		)
+   		stringParam(
+   			'Search_limit', '1', 'Limits pages searched by the test (0=no limit)'
    		)
     } 
     

@@ -26,11 +26,24 @@ Return nth searched page
     [return]    ${url_result}    
 
 Go to nth searched page
-    [arguments]    ${search}    ${n}    ${element_tag}
+    [arguments]    ${search}    ${n}
     ${search_url}=    Return nth searched page    ${search}    ${n}    
     Go To    ${search_url}
-    ${s}=    Convert to String    ${n}    
-    Wait Until Element Contains    ${element_tag}    ${s}            
+    ${pass}=    Run Keyword If    ${n}==1    Wait Until 1st Page Is Loaded
+    ${pass}=    Run Keyword If    ${n}>1    Wait Until Nth Page is Loaded    ${n}
+    [return]    ${pass}    
+    
+Wait Until 1st Page Is Loaded
+    ${pass}=    Run Keyword And Return Status    Wait Until Element Contains    ${paging_current_css}    1
+    Run Keyword If    ${pass}=='False'    Wait Until Page Contains Element    ${page_assert_css}
+    [return]    ${pass}
+    
+Wait Until Nth Page is Loaded
+    [arguments]    ${n}
+    ${s}=    Convert to String    ${n}
+    ${pass}=    Run Keyword And Return Status    Wait Until Element Contains    ${paging_current_css}    ${s}
+    [return]    ${pass}
+                    
          
 Return Attribute List from Element List    
     [arguments]    ${elements_tag}    ${elements_attribute}    ${start}=0
@@ -44,18 +57,24 @@ Return Attribute List from Element List
     END
     [return]    ${result_list}        
     
-Get Total Pages
-    [arguments]    ${search}    ${paging_total_tag}    ${paging_num}
-    Go to nth searched page    ${search}    1    ${paging_current_css}
-    ${paging_total_text}=    Get Text    ${paging_total_tag}
+Go to 1st Page and Return Total Pages
+    [arguments]    ${search}
+    ${pass}=    Go to nth searched page    ${search}    1
+    ${total_pages}=    Run Keyword If    ${pass}=='True'    Get Total Pages
+    ...    ELSE    Evaluate    1
+    [return]    ${total_pages}    
+    
+
+Get Total Pages    
+    ${paging_total_text}=    Get Text    ${paging_current_css}
     ${paging_total_num}=    Convert to Integer    ${paging_total_text}
-    ${paging_count}=    Evaluate    ${paging_total_num}/${paging_num}+0.99
+    ${paging_count}=    Evaluate    ${paging_total_num}/${paging}+0.99
     ${result}=    Convert to Integer    ${paging_count}
     [return]    ${result}
     
 Check for Errors
-    ${pass}=    Run Keyword and Ignore Error    Wait Until Page Contains Element    ${property_assert_css}
-    Run Keyword If    ${pass}=='false'    Log Error    ${error_css}     
+    ${pass}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${property_assert_css}
+    Run Keyword If    ${pass}=='False'    Log Error    ${error_css}     
     [return]    ${pass}
     
 Log Error
@@ -117,16 +136,17 @@ Return Parametrized Description
 Save Search Result Into CSV
     [arguments]    ${search_desc}    ${variable_list}
     ${result_path}=    Config Return Variable    result_path
+    ${result_path}=    Catenate    SEPARATOR=/    ${result_path}    ${starttime}    
     ${result_csv}=    Catenate    SEPARATOR=    ${search_desc}    _    ${starttime}    .csv    
     Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}                
     
 Iterate All Searched Pages and Return Links
     [arguments]    ${search}
-    ${page_count}=    Get Total Pages    ${search}    ${paging_count_css}    ${paging}
+    ${page_count}=    Go to 1st Page and Return Total Pages    ${search}    
     ${result_list}=    Create List    
     FOR    ${i}    IN RANGE    0    ${page_count}
         ${n}=    Evaluate    ${i}+1
-        Go to nth searched page    ${search}    ${n}    ${paging_current_css}
+        Go to nth searched page    ${search}    ${n}
         ${midresult_list}=    Return Attribute List from Element List    ${property_link_css}    ${property_link_attribute}    1
         ${result_list}=    Combine Lists    ${result_list}    ${midresult_list}            
         Exit For Loop If    ${n} == ${search_limit}
@@ -184,12 +204,17 @@ Return Checkmark Value
 Set Test Variables from Config
     ${config_url}=    Config Return Variable    url
     Set Test Variable    ${url}    ${config_url}
-    ${config_search_limit}=    Config Return Variable    search_limit
-    Set Test Variable    ${search_limit}    ${config_search_limit}
     ${config_variable_header}=    Return Property Variable Names
     Set Test Variable    ${variable_header}    ${config_variable_header}
     ${config_variables_tags_list}=    Return Property Variable Tags
-    Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}                 
+    Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
+    
+Set Constant Test Variables
+    Set Test Variable    ${auction_type}    pronajem
+    Set Test Variable    ${realty}    domy
+    Set Test Variable    ${location}    karlovarsky-kraj
+    Set Test Variable    ${size}    5-a-vice
+                 
 
 Get Custom Timestamp
     ${custom_timestamp}=    Config Return Variable    custom_timestamp

@@ -1,6 +1,5 @@
 {
 	"url":"https://www.sreality.cz",
-	"search_limit": 1,
 	"result_path":"results",
 	"custom_timestamp":"%Y%m%d_%H%M%S",
 	"search_base":"/hledani",
