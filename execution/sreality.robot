@@ -20,7 +20,7 @@ Save Parametrized Search
 Save Test Parametrized Search
     [Tags]    Param_Test
     Set Custom Timestamp
-    Set Test Variables from Config
-    Set Constant Test Variables 
+    Set Constant Test Variables
+    Set Test Variables from Config     
     Execute Parametrized Search and Save Into CSV
                   
