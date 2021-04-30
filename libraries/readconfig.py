@@ -36,7 +36,7 @@ def config_return_property_variable_list(var_name, type, realty):
     list = data['property_variables']
     result = []
     for item in list:
-        if var_name in item and type in list['type'] and realty in list['realty']:
+        if var_name in item and type in item['type'] and realty in item['realty']:
             result.append(item[var_name])            
     return result
         
