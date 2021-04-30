@@ -93,30 +93,7 @@ Log Error Message
 Log Timeout Error
     [arguments]    ${current_page}
     ${error_message}=    Catenate    ${current_page}    did not load in time
-    Log    ${error_message}    WARN
-
-Iterate All Searches and Save Into CSV
-    ${search_url_list}=    Return Search Strings
-    ${search_desc_list}=    Return Search Descriptions
-    ${search_count}=    Get Length    ${search_url_list}            
-    FOR    ${i}    IN RANGE    ${search_count}
-        ${search}=    Get From List    ${search_url_list}    ${i}
-        ${search_desc}=    Get From List    ${search_desc_list}    ${i}        
-        ${search_list}=    Iterate All Searched Pages and Return Links    ${search}
-        ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
-        Save Search Result Into CSV    ${search_desc}    ${variable_list}                
-    END
-    
-Execute Single Search and Save Into CSV
-    [arguments]    ${i}
-    ${search_url_list}=    Return Search Strings
-    ${search_desc_list}=    Return Search Descriptions
-    ${search_count}=    Get Length    ${search_url_list}            
-    ${search}=    Get From List    ${search_url_list}    ${i}
-    ${search_desc}=    Get From List    ${search_desc_list}    ${i}        
-    ${search_list}=    Iterate All Searched Pages and Return Links    ${search}
-    ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
-    Save Search Result Into CSV    ${search_desc}    ${variable_list}                      
+    Log    ${error_message}    WARN                      
 
 Execute Parametrized Search and Save Into CSV
     ${search}=    Return Parametrized Search URL
@@ -126,7 +103,7 @@ Execute Parametrized Search and Save Into CSV
     Save Search Result Into CSV    ${search_desc}    ${variable_list}   
 
 Return Parametrized Search URL
-    ${search}    Config Return Search String    ${auction_type}    ${realty}    ${location}    ${size}
+    ${search}    Config Return Search String    ${auction_type}    ${realty}    ${location}    ${size}    ${age}
     [return]    ${search}
     
 Return Parametrized Description
@@ -135,8 +112,7 @@ Return Parametrized Description
 
 Save Search Result Into CSV
     [arguments]    ${search_desc}    ${variable_list}
-    ${result_path}=    Config Return Variable    result_path
-    ${result_path}=    Catenate    SEPARATOR=/    ${result_path}    ${starttime}    
+    ${result_path}=    Catenate    SEPARATOR=/    ${result_folder}    ${starttime}    
     ${result_csv}=    Catenate    SEPARATOR=    ${search_desc}    _    ${starttime}    .csv    
     Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}                
     
@@ -210,12 +186,14 @@ Set Test Variables from Config
     Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
     
 Set Constant Test Variables
+    Set Test Variable    ${search_type}    detail
+    Set Test Variable    ${search_limit}    1
     Set Test Variable    ${auction_type}    pronajem
     Set Test Variable    ${realty}    domy
     Set Test Variable    ${location}    karlovarsky-kraj
     Set Test Variable    ${size}    5-a-vice
+    Set Test Variable    ${age}    all
                  
-
 Get Custom Timestamp
     ${custom_timestamp}=    Config Return Variable    custom_timestamp
     ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
@@ -226,12 +204,12 @@ Set Custom Timestamp
     Set Test Variable    ${starttime}    ${timestamp}            
     
 Return Property Variable Tags
-    ${variables_tags}=    Config Return Variable List    property_variables    locator
+    ${variables_tags}=    Config Return Property Variable List    locator    ${search_type}    ${realty}
     [return]    ${variables_tags}
     
 Return Property Variable Names
-    ${variables_tags}=    Config Return Variable List    property_variables    name
-    [return]    ${variables_tags}
+    ${variables_names}=    Config Return Property Variable List    name    ${search_type}    ${realty}
+    [return]    ${variables_names}
     
 Return Search Strings
     ${search_strings}=    Config Return Variable List    search    url

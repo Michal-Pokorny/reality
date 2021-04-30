@@ -1,5 +1,6 @@
 *** Variables ***
 ${browser}    chrome
+${result_folder}    results
 ${error_css}    css.error-description    
 ${paging_count_css}    css:.paging .info .numero:nth-child(2)
 ${paging}    20
@@ -14,9 +15,11 @@ ${auction_type}    set_from_parameter
 ${realty}    set_from_parameter
 ${location}    set_from_parameter
 ${size}    set_from_parameter
+${age}    set_from_parameter
 ${starttime}    set_from_parameter
 ${url}    set_from_config
 ${search_limit}    set_from_parameter
+${search_type}    set_from_parameter
 ${variable_header}    set_from_config
 ${variables_tags_list}    set_from_config
  

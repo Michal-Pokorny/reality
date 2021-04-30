@@ -11,19 +11,7 @@ Test Teardown    Close Browser
 Resource    ../resources/variables.robot
 Resource    ../resources/keywords.robot                
 
-*** Test Cases ***
-Save All Searched Links
-    [Tags]    All
-    Set Custom Timestamp
-    Set Test Variables from Config
-    Iterate All Searches and Save Into CSV
-    
-Save Single Searched Link
-    [Tags]    Single
-    Set Custom Timestamp
-    Set Test Variables from Config
-    Execute Single Search and Save Into CSV    0
-    
+*** Test Cases ***  
 Save Parametrized Search
     [Tags]    Param
     Set Test Variables from Config
