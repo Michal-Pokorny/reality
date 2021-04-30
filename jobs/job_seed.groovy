@@ -35,7 +35,7 @@ default:
 }
 return choices
 				''')
-                fallbackScript('"All"')
+                fallbackScript('return ["all"]')
             }
             referencedParameter('Realty')
         }
