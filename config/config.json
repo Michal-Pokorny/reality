@@ -1,232 +1,234 @@
 {
 	"url":"https://www.sreality.cz",
-	"result_path":"results",
 	"custom_timestamp":"%Y%m%d_%H%M%S",
 	"search_base":"/hledani",
-	"search_optional_default":"bez-aukce=1",
-	"search_options":{
-			"type":["prodej", "pronajem", "drazby", "projekt"],
-			"realty":["byty", "domy", "pozemky", "komercni", "ostatni"],
-			"location":[
-				"praha", 
-				"stredocesky-kraj", 
-				"ustecky-kraj", 
-				"karlovarsky-kraj",
-				"plzensky-kraj",
-				"jihocesky-kraj",
-				"vysocina-kraj",
-				"pardubicky-kraj",
-				"kralovehradecky-kraj",
-				"liberecky-kraj",
-				"olomoucky-kraj",
-				"moravskoslezsky-kraj",
-				"zlinsky-kraj",
-				"jihomoravsky-kraj"],
-			"size":{
-				"byty":["1%2Bkk","1%2B1","2%2Bkk","2%2B1","3%2Bkk","3%2B1","4%2Bkk","4%2B1","5%2Bkk","5%2B1","6-a-vice","atypicky"]
-			}			
-	},
-	"search":[
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=1%2Bkk&bez-aukce=1",
-			"desc":"1+KK_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=1%2B1&bez-aukce=1",
-			"desc":"1+1_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=2%2Bkk&bez-aukce=1",
-			"desc":"2+KK_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=2%2B1&bez-aukce=1",
-			"desc":"2+1_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=3%2Bkk&bez-aukce=1",
-			"desc":"3+KK_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=3%2B1&bez-aukce=1",
-			"desc":"3+1_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=4%2Bkk&bez-aukce=1",
-			"desc":"4+KK_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=4%2B1&bez-aukce=1",
-			"desc":"4+1_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=5%2Bkk&bez-aukce=1",
-			"desc":"5+KK_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=5%2B1&bez-aukce=1",
-			"desc":"5+1_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=6-a-vice&bez-aukce=1",
-			"desc":"6+_Praha"			
-		},
-		{
-			"url":"/hledani/prodej/byty/praha?velikost=atypicky&bez-aukce=1",
-			"desc":"Atypicky_Praha"			
-		}
-	],
 	"property_variables":[
 		{
 		"name":"Název",
-		"locator":"css:.property-title .name"
+		"locator":"css:.property-title .name",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Adresa",
-		"locator":"css:.property-title .location-text"
+		"locator":"css:.property-title .location-text",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Cena",
-		"locator":"css:.property-title .norm-price"
+		"locator":"css:.property-title .norm-price",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Popis",
-		"locator":"css:.description"
+		"locator":"css:.description",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Kontakt",
-		"locator":"css:.seller-name"
+		"locator":"css:.seller-name",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Realitní kancelář",
-		"locator":"css:.info .name"
+		"locator":"css:.info .name",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Realitní kancelář - adresa",
-		"locator":"css:.info .address"
+		"locator":"css:.info .address",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Celková cena",
-		"locator":"//label[.='Celková cena:']/following-sibling::strong"
+		"locator":"//label[.='Celková cena:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Poznámka k ceně",
-		"locator":"//label[.='Poznámka k ceně:']/following-sibling::strong"
+		"locator":"//label[.='Poznámka k ceně:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"ID zakázky",
-		"locator":"//label[.='ID zakázky:']/following-sibling::strong"
+		"locator":"//label[.='ID zakázky:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Aktualizace",
-		"locator":"//label[.='Aktualizace:']/following-sibling::strong"
+		"locator":"//label[.='Aktualizace:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		},
 		{
 		"name":"Stavba",
-		"locator":"//label[.='Stavba:']/following-sibling::strong"
+		"locator":"//label[.='Stavba:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Stav objektu",
-		"locator":"//label[.='Stav objektu:']/following-sibling::strong"
+		"locator":"//label[.='Stav objektu:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Vlastnictví",
-		"locator":"//label[.='Vlastnictví:']/following-sibling::strong"
+		"locator":"//label[.='Vlastnictví:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Umístění objektu",
-		"locator":"//label[.='Umístění objektu:']/following-sibling::strong"
+		"locator":"//label[.='Umístění objektu:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Podlaží",
-		"locator":"//label[.='Podlaží:']/following-sibling::strong"
+		"locator":"//label[.='Podlaží:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Užitná plocha",
-		"locator":"//label[.='Užitná plocha:']/following-sibling::strong"
+		"locator":"//label[.='Užitná plocha:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Plocha podlahová",
-		"locator":"//label[.='Plocha podlahová:']/following-sibling::strong"
+		"locator":"//label[.='Plocha podlahová:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Plocha zahrady",
-		"locator":"//label[.='Plocha zahrady:']/following-sibling::strong"
+		"locator":"//label[.='Plocha zahrady:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Balkón",
-		"locator":"//label[.='Balkón:']/following-sibling::strong"
+		"locator":"//label[.='Balkón:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Lodžie",
-		"locator":"//label[.='Lodžie:']/following-sibling::strong"
+		"locator":"//label[.='Lodžie:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Sklep",
-		"locator":"//label[.='Sklep:']/following-sibling::strong"
+		"locator":"//label[.='Sklep:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Parkování",
-		"locator":"//label[.='Parkování:']/following-sibling::strong"
+		"locator":"//label[.='Parkování:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Garáž",
-		"locator":"//label[.='Garáž:']/following-sibling::strong"
+		"locator":"//label[.='Garáž:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Voda",
-		"locator":"//label[.='Voda:']/following-sibling::strong"
+		"locator":"//label[.='Voda:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Topení",
-		"locator":"//label[.='Topení:']/following-sibling::strong"
+		"locator":"//label[.='Topení:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Rok kolaudace",
-		"locator":"//label[.='Rok kolaudace:']/following-sibling::strong"
+		"locator":"//label[.='Rok kolaudace:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Telekomunikace",
-		"locator":"//label[.='Telekomunikace:']/following-sibling::strong"
+		"locator":"//label[.='Telekomunikace:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Elektřina",
-		"locator":"//label[.='Elektřina:']/following-sibling::strong"
+		"locator":"//label[.='Elektřina:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Doprava",
-		"locator":"//label[.='Doprava:']/following-sibling::strong"
+		"locator":"//label[.='Doprava:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},	
 		{
 		"name":"Energetická náročnost budovy",
-		"locator":"//label[.='Energetická náročnost budovy:']/following-sibling::strong"
+		"locator":"//label[.='Energetická náročnost budovy:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
 		"name":"Odpad",
-		"locator":"//label[.='Odpad:']/following-sibling::strong"
+		"locator":"//label[.='Odpad:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
 		"name":"Komunikace",
-		"locator":"//label[.='Komunikace:']/following-sibling::strong"
+		"locator":"//label[.='Komunikace:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
 		"name":"Ukazatel energetické náročnosti budovy",
-		"locator":"//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong"
+		"locator":"//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
 		"name":"Vybavení",
-		"locator":"//label[.='Vybavení:']/following-sibling::strong"
+		"locator":"//label[.='Vybavení:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
 		"name":"Bezbariérový",
-		"locator":"//label[.='Bezbariérový:']/following-sibling::strong"
+		"locator":"//label[.='Bezbariérový:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},
 		{
 		"name":"Výtah",
-		"locator":"//label[.='Výtah:']/following-sibling::strong"
+		"locator":"//label[.='Výtah:']/following-sibling::strong",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["detail"]
 		},		
 		{
-		"name":"URL"
+		"name":"URL",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["basic", "detail"]
 		}
 	]
 }
