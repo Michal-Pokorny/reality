@@ -30,12 +30,12 @@ Go to nth searched page
     ${search_url}=    Return nth searched page    ${search}    ${n}    
     Go To    ${search_url}
     ${pass}=    Run Keyword If    ${n}==1    Wait Until 1st Page Is Loaded
-    ${pass}=    Run Keyword If    ${n}>1    Wait Until Nth Page is Loaded    ${n}
+    ...    ELSE    Wait Until Nth Page is Loaded    ${n}
     [return]    ${pass}    
     
 Wait Until 1st Page Is Loaded
     ${pass}=    Run Keyword And Return Status    Wait Until Element Contains    ${paging_current_css}    1
-    Run Keyword If    ${pass}=='False'    Wait Until Page Contains Element    ${page_assert_css}
+    Run Keyword If    ${pass} == False    Wait Until Page Contains Element    ${page_assert_css}
     [return]    ${pass}
     
 Wait Until Nth Page is Loaded
@@ -60,13 +60,14 @@ Return Attribute List from Element List
 Go to 1st Page and Return Total Pages
     [arguments]    ${search}
     ${pass}=    Go to nth searched page    ${search}    1
-    ${total_pages}=    Run Keyword If    ${pass}=='True'    Get Total Pages
+    Log    ${pass}
+    ${total_pages}=    Run Keyword If    ${pass} == True    Get Total Pages
     ...    ELSE    Evaluate    1
     [return]    ${total_pages}    
     
 
 Get Total Pages    
-    ${paging_total_text}=    Get Text    ${paging_current_css}
+    ${paging_total_text}=    Get Text    ${paging_count_css}
     ${paging_total_num}=    Convert to Integer    ${paging_total_text}
     ${paging_count}=    Evaluate    ${paging_total_num}/${paging}+0.99
     ${result}=    Convert to Integer    ${paging_count}
@@ -74,7 +75,7 @@ Get Total Pages
     
 Check for Errors
     ${pass}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${property_assert_css}
-    Run Keyword If    ${pass}=='False'    Log Error    ${error_css}     
+    Run Keyword If    ${pass} == False    Log Error    ${error_css}     
     [return]    ${pass}
     
 Log Error
@@ -137,7 +138,7 @@ Iterate Pages from List and Return Variables
         ${search_url}=    Catenate    SEPARATOR=    ${url}    ${search}
         Go To    ${search_url}
         ${pass}=    Check for Errors
-        Continue For Loop If    ${pass}=='false'            
+        Continue For Loop If    ${pass} == False            
         ${variables_list}=    Return Property Variable List    ${search_url}            
         Append To List    ${property_list}    ${variables_list}       
     END
@@ -186,12 +187,12 @@ Set Test Variables from Config
     Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
     
 Set Constant Test Variables
-    Set Test Variable    ${search_type}    detail
-    Set Test Variable    ${search_limit}    1
-    Set Test Variable    ${auction_type}    pronajem
-    Set Test Variable    ${realty}    domy
+    Set Test Variable    ${search_type}    basic
+    Set Test Variable    ${search_limit}    2
+    Set Test Variable    ${auction_type}    prodej
+    Set Test Variable    ${realty}    byty
     Set Test Variable    ${location}    karlovarsky-kraj
-    Set Test Variable    ${size}    5-a-vice
+    Set Test Variable    ${size}    6-a-vice
     Set Test Variable    ${age}    all
                  
 Get Custom Timestamp
