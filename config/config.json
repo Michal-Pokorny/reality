@@ -5,6 +5,24 @@
 	"property_variables":[
 		{
 		"name":"Název",
+		"locator":"css:.basic .name.ng-binding",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["fast"]
+		},
+		{
+		"name":"Adresa",
+		"locator":"css:.basic .locality.ng-binding",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["fast"]
+		},
+		{
+		"name":"Cena",
+		"locator":"css:.basic .norm-price.ng-binding",
+		"realty": ["byty","domy","pozemky","komercni","ostatni"],
+		"type":["fast"]
+		},		
+		{
+		"name":"Název",
 		"locator":"css:.property-title .name",
 		"realty": ["byty","domy","pozemky","komercni","ostatni"],
 		"type":["basic", "detail"]
@@ -228,7 +246,7 @@
 		{
 		"name":"URL",
 		"realty": ["byty","domy","pozemky","komercni","ostatni"],
-		"type":["basic", "detail"]
+		"type":["fast", "basic", "detail"]
 		}
 	]
 }

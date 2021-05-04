@@ -39,12 +39,14 @@ def config_return_property_variable_list(var_name, type, realty):
         if var_name in item and type in item['type'] and realty in item['realty']:
             result.append(item[var_name])            
     return result
-        
-        
-            
-        
-            
-        
 
-    
+def return_variable_list_from_webelement_list(list, start, count):
+    result = []
+    end = count - 1
+    for i in range(start, count):
+        midresult = []
+        for item in list:
+            midresult.append(item[i])
+        result.append(midresult)       
+    return result    
     
