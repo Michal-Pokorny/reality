@@ -1,5 +1,6 @@
 *** Variables ***
-${browser}    chrome
+${error_count}    0
+${error_limit}    0
 ${result_folder}    results
 ${error_css}    css.error-description    
 ${paging_count_css}    css:.paging .info .numero:nth-child(2)
@@ -11,6 +12,7 @@ ${page_error_css}    css:.status-text.ng-binding
 ${property_link_css}    css:.dir-property-list .property h2 .title
 ${property_link_attribute}    ng-href
 ${property_assert_css}    css:.property-title
+${property_pinned_css}    css:.tip-region.ng-scope
 ${auction_type}    set_from_parameter
 ${realty}    set_from_parameter
 ${location}    set_from_parameter
@@ -18,6 +20,8 @@ ${size}    set_from_parameter
 ${age}    set_from_parameter
 ${starttime}    set_from_parameter
 ${url}    set_from_config
+${search_string}    set_during_execution
+${search_desc}    set_during_execution
 ${search_limit}    set_from_parameter
 ${search_type}    set_from_parameter
 ${variable_header}    set_from_config

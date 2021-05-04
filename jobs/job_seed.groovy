@@ -49,7 +49,7 @@ return choices
    			'Search_limit', '1', 'Limits pages searched by the test (0=no limit)'
    		)
    		choiceParam(
-        	'Search_type', ['detail','basic']
+        	'Search_type', ['detail','basic','fast']
         )
     } 
     
@@ -66,5 +66,22 @@ return choices
         }
     }   
 }
+pipelineJob('SReality - Test') {	         
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('Michal-Pokorny/reality')
+                    }
+                }
+            }
+            scriptPath('jobs/sreality_test.groovy')
+        }
+    }   
+}
+
+
+
 
 
