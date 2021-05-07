@@ -1,4 +1,4 @@
-pipelineJob('SReality - Parameters') {	 
+pipelineJob('Reality - Parameters') {	 
     parameters{
     	choiceParam(
   			'Source', ['sreality','idnes']
@@ -65,7 +65,7 @@ return choices
                     }
                 }
             }
-            scriptPath('jobs/sreality_param.groovy')
+            scriptPath('jobs/reality_param.groovy')
         }
     }   
 }
