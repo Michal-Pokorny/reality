@@ -10,17 +10,17 @@ Resource   ../variables.robot
 
 *** Keywords ***
 Set Test Variables from Parameters
-    Set Test Variables from Config
+    Config Set Test Variables
     Set Parametrized Search URL
     Set Parametrized Description
     Set Parametrized Search Limit
     
 Set Parametrized Search URL
-    ${search}    Config Return Search String    ${auction_type}    ${realty}    ${location}    ${size}    ${age}
+    ${search}=    Config Return Search String    ${auctionplace}    ${auction_type}    ${realty}    ${location}    ${size}    ${age}
     Set Test Variable    ${search_string}     ${search} 
     
 Set Parametrized Description
-    ${desc}=    Catenate    SEPARATOR=_    ${auction_type}    ${realty}    ${location}    ${size}
+    ${desc}=    Catenate    SEPARATOR=_    ${auctionplace}    ${auction_type}    ${realty}    ${location}    ${size}
     Set Test Variable    ${search_desc}     ${desc}    
 
 Set Parametrized Search Limit
@@ -35,8 +35,9 @@ Set Test Variables from Config
     Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
     
 Set Constant Test Variables
+    Set Test Variable    ${auctionplace}    idnes
     Set Test Variable    ${search_type}    fast
-    Set Test Variable    ${search_limit}    0
+    Set Test Variable    ${search_limit}    2
     Set Test Variable    ${auction_type}    prodej
     Set Test Variable    ${realty}    byty
     Set Test Variable    ${location}    all
@@ -44,7 +45,6 @@ Set Constant Test Variables
     Set Test Variable    ${age}    all
                  
 Get Custom Timestamp
-    ${custom_timestamp}=    Config Return Variable    custom_timestamp
     ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
     [return]    ${timestamp}
     

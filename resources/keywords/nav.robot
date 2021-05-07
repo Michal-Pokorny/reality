@@ -17,48 +17,22 @@ Open Browser with no Page
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    --no-sandbox
     Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --user-agent\=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36 System/ComputerId
     Create Webdriver    Chrome    chrome_options=${chrome_options}
     Set Screenshot Directory    screenshots
     Maximize Browser Window
-    Set Selenium Timeout 	30 seconds
-    
-Open Browser with no Page Test
-    ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-    Call Method    ${chrome_options}    add_argument    --headless
-    Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Create Webdriver    Chrome    chrome_options=${chrome_options} 
-    Set Screenshot Directory    screenshots
+    Set Selenium Timeout 	${timeout}
     
 Reset Browser
     Close Browser
-    Sleep    5s
     Open Browser with no Page           
    
-Return nth searched page
+Return Nth searched page
     [arguments]    ${n}
-    ${url_result}=    Catenate    SEPARATOR=    ${url}    ${search_string}    &strana=    ${n}        
+    ${url_result}=    Catenate    SEPARATOR=    ${url}    ${search_string}    &    ${url_count_string}    ${n}        
     [return]    ${url_result}    
 
 Go To Nth Searched Page
     [arguments]    ${n}
-    ${search_url}=    Return nth searched page    ${n}    
+    ${search_url}=    Return Nth searched page    ${n}    
     Go To    ${search_url}
-
-Go to nth searched page and Assert
-    [arguments]    ${n}
-    ${search_url}=    Return nth searched page    ${n}    
-    Go To    ${search_url}
-    ${pass}=    Run Keyword If    ${n}==1    Wait Until 1st Page Is Loaded
-    ...    ELSE    Wait Until Nth Page is Loaded    ${n}
-    [return]    ${pass}    
-    
-Wait Until 1st Page Is Loaded
-    ${pass}=    Run Keyword And Return Status    Wait Until Element Contains    ${paging_current_css}    1
-    Run Keyword If    ${pass} == False    Wait Until Page Contains Element    ${page_assert_css}
-    [return]    ${pass}
-    
-Wait Until Nth Page is Loaded
-    [arguments]    ${n}
-    ${s}=    Convert to String    ${n}
-    ${pass}=    Run Keyword And Return Status    Wait Until Element Contains    ${paging_current_css}    ${s}
-    [return]    ${pass}

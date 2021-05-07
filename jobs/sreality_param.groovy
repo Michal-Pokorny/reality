@@ -15,7 +15,7 @@ pipeline {
         stage('Run Test') {
             steps {
                 echo "Parameters: ${env.Type}, ${env.Realty}, ${env.Location}, ${env.Size}, ${env.Search_limit}, ${env.Search_type}, ${env.Age}"
-                powershell "docker-compose run robot robot --include Param --variable auction_type:${env.Type} --variable realty:${env.Realty} --variable location:${env.Location} --variable size:${env.Size} --variable starttime:${env.BUILD_TIMESTAMP_PATH} --variable search_limit:${env.Search_limit} --variable search_type:${env.Search_type} --variable age:${env.Age} execution/sreality.robot"                
+                powershell "docker-compose run robot robot --include Param --variable auctionplace:${env.Source} --variable auction_type:${env.Type} --variable realty:${env.Realty} --variable location:${env.Location} --variable size:${env.Size} --variable starttime:${env.BUILD_TIMESTAMP_PATH} --variable search_limit:${env.Search_limit} --variable search_type:${env.Search_type} --variable age:${env.Age} execution/sreality.robot"                
             }
         }
         stage('Send E-mail') {
