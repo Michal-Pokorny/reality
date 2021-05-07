@@ -235,211 +235,171 @@
       "property_link_css" : "css:.c-list-products__link",
       "property_link_attribute" : "href",
       "property_assert_css" : "css:.b-detail__title",
-      "property_pinned_css" : "css:.tip-region.ng-scope"
+      "property_pinned_css" : "css:.labels .labels__item.labels__item--secondary"
     },
     "property_variables" : [ {
       "name" : "Název",
       "locator" : "css:.c-list-products__title",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
       "name" : "Adresa",
       "locator" : "css:.c-list-products__info",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
       "name" : "Cena",
       "locator" : "css:.c-list-products__price",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
       "name" : "Název",
-      "locator" : "css:.property-title .name",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.b-detail .b-detail__title",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Adresa",
-      "locator" : "css:.property-title .location-text",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.b-detail .b-detail__title",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Cena",
-      "locator" : "css:.property-title .norm-price",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.b-detail .b-detail__price strong",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
+      "type" : [ "basic", "detail" ]
+    },{
+      "name" : "Poznámka k ceně",
+      "locator" : "css:.wrapper-price-notes.color-grey.mb-5 .items__item:nth-child(2)",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Popis",
-      "locator" : "css:.description",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.b-desc.pt-10.mt-10",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Kontakt",
-      "locator" : "css:.seller-name",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.b-author__title a",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Realitní kancelář",
-      "locator" : "css:.info .name",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.hide-desktop-down .b-author.mb-20 .b-author__info:first-child",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Realitní kancelář - adresa",
-      "locator" : "css:.info .address",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "css:.hide-desktop-down .b-author.mb-20 .b-author__info:nth-child(2)",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
     }, {
-      "name" : "Celková cena",
-      "locator" : "//label[.='Celková cena:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "name" : "Číslo zakázky",
+      "locator" : "//dt[.='Číslo zakázky']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
     }, {
-      "name" : "Poznámka k ceně",
-      "locator" : "//label[.='Poznámka k ceně:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "name" : "Konstrukce budovy",
+      "locator" : "//dt[.='Konstrukce budovy']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "ID zakázky",
-      "locator" : "//label[.='ID zakázky:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Stav budovy",
+      "locator" : "//dt[.='Stav budovy']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Aktualizace",
-      "locator" : "//label[.='Aktualizace:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "basic", "detail" ]
-    }, {
-      "name" : "Stavba",
-      "locator" : "//label[.='Stavba:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Stav bytu",
+      "locator" : "//dt[.='Stav bytu']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Stav objektu",
-      "locator" : "//label[.='Stav objektu:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Vlastnictví",
-      "locator" : "//label[.='Vlastnictví:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Vlastnictví']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Umístění objektu",
-      "locator" : "//label[.='Umístění objektu:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Lokalita objektu",
+      "locator" : "//dt[.='Lokalita objektu']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Podlaží",
-      "locator" : "//label[.='Podlaží:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Užitná plocha",
-      "locator" : "//label[.='Užitná plocha:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Užitná plocha']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Plocha podlahová",
-      "locator" : "//label[.='Plocha podlahová:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Podlaží",
+      "locator" : "//dt[.='Podlaží']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Plocha zahrady",
-      "locator" : "//label[.='Plocha zahrady:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Počet podlaží budovy",
+      "locator" : "//dt[.='Počet podlaží budovy']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Balkón",
-      "locator" : "//label[.='Balkón:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Lodžie",
-      "locator" : "//label[.='Lodžie:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Sklep",
-      "locator" : "//label[.='Sklep:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Sklep']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Parkování",
-      "locator" : "//label[.='Parkování:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Parkování']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Garáž",
-      "locator" : "//label[.='Garáž:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Internet",
+      "locator" : "//dt[.='Internet']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Voda",
-      "locator" : "//label[.='Voda:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Telefon",
+      "locator" : "//dt[.='Telefon']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
+    },{
+      "name" : "Televize",
+      "locator" : "//dt[.='Televize']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
+      "type" : [ "detail" ]
+    },{
+      "name" : "Plyn",
+      "locator" : "//dt[.='Plyn']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
+      "type" : [ "detail" ]
+    },{
       "name" : "Topení",
-      "locator" : "//label[.='Topení:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Topení']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Rok kolaudace",
-      "locator" : "//label[.='Rok kolaudace:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Telekomunikace",
-      "locator" : "//label[.='Telekomunikace:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Elektřina",
-      "locator" : "//label[.='Elektřina:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Elektřina']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Doprava",
-      "locator" : "//label[.='Doprava:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Energetická náročnost budovy",
-      "locator" : "//label[.='Energetická náročnost budovy:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Odpad",
-      "locator" : "//label[.='Odpad:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Komunikace",
-      "locator" : "//label[.='Komunikace:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
-      "name" : "Ukazatel energetické náročnosti budovy",
-      "locator" : "//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "detail" ]
-    }, {
+    },{
       "name" : "Vybavení",
-      "locator" : "//label[.='Vybavení:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "locator" : "//dt[.='Vybavení']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Bezbariérový",
-      "locator" : "//label[.='Bezbariérový:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Roční spotřeba energie",
+      "locator" : "//dt[.='Roční spotřeba energie']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
-      "name" : "Výtah",
-      "locator" : "//label[.='Výtah:']/following-sibling::strong",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+    },{
+      "name" : "Dopravní dostupnost",
+      "locator" : "//dt[.='Dopravní dostupnost']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "detail" ]
-    }, {
+    },{
+      "name" : "PENB",
+      "locator" : "//dt[.='PENB']/following-sibling::dd",
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
+      "type" : [ "detail" ]
+    },{
       "name" : "URL",
-      "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
+      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast", "basic", "detail" ]
     } ]
   }
