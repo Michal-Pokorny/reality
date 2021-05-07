@@ -16,8 +16,7 @@ case "idnes":
 	break
 default:
 	choices = ["prodej"]
-	break
-}
+	break}
 return choices
 				''')
                 fallbackScript('return ["prodej"]')
@@ -37,8 +36,7 @@ case "idnes":
 	break
 default:
 	choices = ["byty"]
-	break
-}
+	break}
 return choices
 				''')
                 fallbackScript('return ["byty"]')
@@ -70,8 +68,7 @@ case "ostatni":
 	break
 default:
 	choices = ["all"]
-	break
-}
+	break}
 return choices
 				''')
                 fallbackScript('return ["all"]')
