@@ -3,12 +3,48 @@ pipelineJob('Reality - Parameters') {
     	choiceParam(
   			'Source', ['sreality','idnes']
   		)
-    	choiceParam(
-  			'Type', ['prodej','pronajem','drazby','projekt']
-  		)        
-        choiceParam(
-        	'Realty', ['byty','domy','pozemky','komercni','ostatni']
-        )        
+    	activeChoiceReactiveParam('Type') {
+            choiceType('SINGLE_SELECT')
+            groovyScript {
+                script('''def choices
+switch(Source){
+case "sreality":
+    choices = ["prodej","pronajem","drazby","projekt"]
+    break
+case "idnes":
+	choices = ["prodej","pronajem","vymena","drazba"]
+	break
+default:
+	choices = ["prodej"]
+	break
+}
+return choices
+				''')
+                fallbackScript('return ["prodej"]')
+            }
+            referencedParameter('Source')
+        }        
+        activeChoiceReactiveParam('Realty') {
+            choiceType('SINGLE_SELECT')
+            groovyScript {
+                script('''def choices
+switch(Source){
+case "sreality":
+    choices = ["byty","domy","pozemky","komercni","ostatni"]
+    break
+case "idnes":
+	choices = ["byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze"]
+	break
+default:
+	choices = ["byty"]
+	break
+}
+return choices
+				''')
+                fallbackScript('return ["byty"]')
+            }
+            referencedParameter('Source')
+        }        
         choiceParam(
         	'Location', ['praha','stredocesky-kraj','ustecky-kraj','karlovarsky-kraj','plzensky-kraj','jihocesky-kraj','vysocina-kraj','pardubicky-kraj','kralovehradecky-kraj','liberecky-kraj','olomoucky-kraj','moravskoslezsky-kraj','zlinsky-kraj','jihomoravsky-kraj','all']
         )

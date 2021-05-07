@@ -52,7 +52,17 @@ def config_return_search_string(source, type, realty, location="all", size="all"
             search_string += "/" + size
         if location != "all":
             search_string += "/" + location
-        search_string += "?"                        
+        search_string += "?"
+        if age != "all":
+            if age == "den":
+                age_string = "s-qc[articleAge]=1&"
+            elif age == "tyden":
+                age_string = "s-qc[articleAge]=7&"
+            elif age == "mesic":
+                age_string = "s-qc[articleAge]=31&"
+            search_string += age_string           
+        if optional:
+            search_string += optional                            
     return search_string
 
 def config_return_property_variable_list(var_name, type, realty):
