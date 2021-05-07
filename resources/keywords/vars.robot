@@ -36,13 +36,13 @@ Set Test Variables from Config
     
 Set Constant Test Variables
     Set Test Variable    ${auctionplace}    idnes
-    Set Test Variable    ${search_type}    fast
-    Set Test Variable    ${search_limit}    2
+    Set Test Variable    ${search_type}    detail
+    Set Test Variable    ${search_limit}    0
     Set Test Variable    ${auction_type}    prodej
     Set Test Variable    ${realty}    byty
-    Set Test Variable    ${location}    all
-    Set Test Variable    ${size}    all
-    Set Test Variable    ${age}    all
+    Set Test Variable    ${location}    praha
+    Set Test Variable    ${size}    1+1
+    Set Test Variable    ${age}    tyden
                  
 Get Custom Timestamp
     ${timestamp}=    Get Current Date    result_format=${custom_timestamp}

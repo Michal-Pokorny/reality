@@ -259,7 +259,7 @@
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Adresa",
-      "locator" : "css:.b-detail .b-detail__title",
+      "locator" : "css:.b-detail .b-detail__info",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
@@ -282,16 +282,6 @@
       "locator" : "css:.b-author__title a",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
-    }, {
-      "name" : "Realitní kancelář",
-      "locator" : "css:.hide-desktop-down .b-author.mb-20 .b-author__info:first-child",
-      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
-      "type" : [ "basic", "detail" ]
-    }, {
-      "name" : "Realitní kancelář - adresa",
-      "locator" : "css:.hide-desktop-down .b-author.mb-20 .b-author__info:nth-child(2)",
-      "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
-      "type" : [ "detail" ]
     }, {
       "name" : "Číslo zakázky",
       "locator" : "//dt[.='Číslo zakázky']/following-sibling::dd",
