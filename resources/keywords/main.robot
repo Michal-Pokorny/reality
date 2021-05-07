@@ -59,7 +59,8 @@ Iterate Pages from List and Return Variables
     [arguments]    ${search_list}
     ${property_list}=    Create List    
     FOR    ${search}    IN    @{search_list}
-        ${search_url}=    Catenate    SEPARATOR=    ${url}    ${search}
+        ${search_url}=    Run Keyword If    '${url_full_transform}' == 'true'    Catenate    SEPARATOR=    ${url}    ${search}
+        ...    ELSE    Catenate    ${search}
         Go To    ${search_url}
         ${pass}=    Check for Errors
         Continue For Loop If    ${pass} == False            
@@ -91,6 +92,7 @@ Execute Fast Search and Return Data
         ${log_message}=    Catenate    Found    ${count}    properties on page    ${n}
         Log    ${log_message}    DEBUG    console=yes        
     END
+    ${variable_list}=    Remove Duplicates    ${variable_list}
     [return]    ${variable_list}
     
 Execute Fast
