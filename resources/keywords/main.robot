@@ -4,7 +4,6 @@ Library    Collections
 Library    OperatingSystem
 Library    DateTime 
 Library    Selenium2Library
-Library    Process
 Library    ../../libraries/csvlib.py
 Library    ../../libraries/readconfig.py
 Resource    ../variables.robot
@@ -24,21 +23,7 @@ Return Attribute List from Element List
         Run Keyword If    ${i}>=${start}    Append To List    ${result_list}    ${attribute}    
     END
     [return]    ${result_list}        
-    
-Go to 1st Page and Return Total Pages
-    ${pass}=    Go to nth searched page and Assert    1
-    Log    ${pass}
-    ${total_pages}=    Run Keyword If    ${pass} == True    Get Total Pages
-    ...    ELSE    Evaluate    1
-    [return]    ${total_pages}        
-
-Get Total Pages    
-    ${paging_total_text}=    Get Text    ${paging_count_css}
-    ${paging_total_num}=    Convert to Integer    ${paging_total_text}
-    ${paging_count}=    Evaluate    ${paging_total_num}/${paging}+0.99
-    ${result}=    Convert to Integer    ${paging_count}
-    [return]    ${result}
-    
+        
 Check for Errors
     ${pass}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${property_assert_css}
     Run Keyword If    ${pass} == False    Log Error    ${error_css}     
@@ -60,12 +45,7 @@ Log Error Message
 Log Timeout Error
     [arguments]    ${current_page}
     ${error_message}=    Catenate    ${current_page}    did not load in time
-    Log    ${error_message}    WARN                      
-
-Execute Parametrized Search and Save Into CSV    
-    ${search_list}=    Iterate All Searched Pages and Return Links
-    ${variable_list}=    Iterate Pages from List and Return Variables    ${search_list}        
-    Save Search Result Into CSV    ${variable_list}      
+    Log    ${error_message}    WARN                            
 
 Save Search Result Into CSV
     [arguments]    ${variable_list}
@@ -74,22 +54,7 @@ Save Search Result Into CSV
     Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}
     ${log_message}=    Catenate    Saved data to    ${result_csv}    
     Log    ${log_message}    DEBUG    console=yes                 
-    
-Iterate All Searched Pages and Return Links
-    ${page_count}=    Go to 1st Page and Return Total Pages   
-    ${result_list}=    Create List    
-    FOR    ${i}    IN RANGE    0    ${page_count}
-        ${n}=    Evaluate    ${i}+1
-        Go to nth searched page and Assert    ${n}
-        ${midresult_list}=    Return Attribute List from Element List    ${property_link_css}    ${property_link_attribute}    1
-        ${result_list}=    Combine Lists    ${result_list}    ${midresult_list}            
-        Exit For Loop If    ${n} == ${search_limit}
-        Log    ${n}    DEBUG    console=yes
-        Log    ${midresult_list}    DEBUG    console=yes
-    END
-    ${result_list}=    Remove Duplicates    ${result_list}
-    [return]    ${result_list}
-    
+        
 Iterate Pages from List and Return Variables
     [arguments]    ${search_list}
     ${property_list}=    Create List    
@@ -116,7 +81,7 @@ Execute Parametrized Direct Search and Return Data
 Execute Fast Search and Return Data
     ${variable_list}=    Create List
     FOR    ${i}    IN RANGE    0    ${search_limit}
-        ${n}=    Evaluate    ${i}+1    
+        ${n}=    Evaluate    ${i}+${url_count_start}    
         ${count}=    Go To Nth Searched Page and Return Auction Count    ${n} 
         Exit For Loop If    ${count} == 0
         Continue For Loop If    ${count} == -1        
@@ -142,15 +107,16 @@ Return Variables on Search Page
     [arguments]    ${start}    ${end}
     ${webelement_list}=    Return All Property Variables on Page
     ${link_list_page}=    Return Links on Page    0    ${end}
-    ${full_link_list}=    Transform Links to Full    ${link_list_page}
-    Append To List    ${webelement_list}    ${full_link_list}    
+    ${transform_link_list_page}=    Run Keyword If    '${url_full_transform}' == 'true'    Transform Links to Full    ${link_list_page}   
+    Run Keyword If    '${url_full_transform}' == 'true'    Append To List    ${webelement_list}    ${transform_link_list_page}
+    ...    ELSE    Append To List    ${webelement_list}    ${link_list_page}        
     ${variable_list}=    Return Variable List From Webelement List    ${webelement_list}    ${start}    ${end}   
     [return]    ${variable_list}
 
 Return Links of Direct Search
     ${link_list}=    Create List
     FOR    ${i}    IN RANGE    0    ${search_limit}
-        ${n}=    Evaluate    ${i}+1    
+        ${n}=    Evaluate    ${i}+${url_count_start}    
         ${count}=    Go To Nth Searched Page and Return Auction Count    ${n} 
         Exit For Loop If    ${count} == 0
         Continue For Loop If    ${count} == -1 
@@ -194,10 +160,10 @@ Go To Nth Searched Page and Return Auction Count
     
 Log Failed Page Load
     ${current_page}=    Get Location
-    ${log_message}=    Catenate    ${current_page}    did not load in 30 seconds. Skipping.
+    ${log_message}=    Catenate    ${current_page}    did not load in    ${timeout}    seconds. Skipping.
     Log    ${log_message}    WARN    console=yes
     ${error_count}=    Evaluate    ${error_count} + 1
-    Run Keyword If    ${error_count} > ${error_limit}    Terminate Process    
+    Run Keyword If    ${error_count} > ${error_limit}    Fatal Error    
     [return]    -1
     
 

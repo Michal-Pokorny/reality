@@ -1,6 +1,9 @@
 pipelineJob('SReality - Parameters') {	 
     parameters{
     	choiceParam(
+  			'Source', ['sreality','idnes']
+  		)
+    	choiceParam(
   			'Type', ['prodej','pronajem','drazby','projekt']
   		)        
         choiceParam(
@@ -66,22 +69,3 @@ return choices
         }
     }   
 }
-pipelineJob('SReality - Test') {	         
-    definition {
-        cpsScm {
-            scm {
-                git {
-                    remote {
-                        github('Michal-Pokorny/reality')
-                    }
-                }
-            }
-            scriptPath('jobs/sreality_test.groovy')
-        }
-    }   
-}
-
-
-
-
-
