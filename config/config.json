@@ -269,7 +269,7 @@
       "type" : [ "basic", "detail" ]
     },{
       "name" : "Poznámka k ceně",
-      "locator" : "css:.wrapper-price-notes.color-grey.mb-5 .items__item:nth-child(2)",
+      "locator" : "css:.wrapper-price-notes.color-grey.mb-5",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "basic", "detail" ]
     }, {
