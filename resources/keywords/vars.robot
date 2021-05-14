@@ -35,9 +35,9 @@ Set Test Variables from Config
     Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
     
 Set Constant Test Variables
-    Set Test Variable    ${auctionplace}    idnes
-    Set Test Variable    ${search_type}    detail
-    Set Test Variable    ${search_limit}    0
+    Set Test Variable    ${auctionplace}    sreality
+    Set Test Variable    ${search_type}    basic
+    Set Test Variable    ${search_limit}    2
     Set Test Variable    ${auction_type}    prodej
     Set Test Variable    ${realty}    byty
     Set Test Variable    ${location}    praha

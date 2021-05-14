@@ -48,16 +48,15 @@ Log Timeout Error
     Log    ${error_message}    WARN                            
 
 Save Search Result Into CSV
-    [arguments]    ${variable_list}
     ${result_path}=    Catenate    SEPARATOR=/    ${result_folder}    ${starttime}    
     ${result_csv}=    Catenate    SEPARATOR=    ${search_desc}    _    ${starttime}    .csv    
-    Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${variable_list}
+    Write Into Csv File    ${result_path}    ${result_csv}    ${variable_header}    ${result_data}
     ${log_message}=    Catenate    Saved data to    ${result_csv}    
     Log    ${log_message}    DEBUG    console=yes                 
         
-Iterate Pages from List and Return Variables
+Iterate Pages from List and Save Variables
     [arguments]    ${search_list}
-    ${property_list}=    Create List    
+    ${result_data_list}    Create List    
     FOR    ${search}    IN    @{search_list}
         ${search_url}=    Run Keyword If    '${url_full_transform}' == 'true'    Catenate    SEPARATOR=    ${url}    ${search}
         ...    ELSE    Catenate    ${search}
@@ -65,22 +64,22 @@ Iterate Pages from List and Return Variables
         ${pass}=    Check for Errors
         Continue For Loop If    ${pass} == False            
         ${variables_list}=    Return Property Variable List    ${search_url}            
-        Append To List    ${property_list}    ${variables_list}       
+        Append To List    ${result_data_list}    ${variables_list}       
     END
-    [return]    ${property_list}
+    Set Test Variable    ${result_data}    ${result_data_list}
     
 Execute Parametrized Direct Search and Save Into CSV
-    ${data}=    Run Keyword If    '${search_type}' == 'fast'    Execute Fast Search and Return Data
-    ...    ELSE    Execute Parametrized Direct Search and Return Data        
-    Save Search Result Into CSV    ${data}
+    Run Keyword If    '${search_type}' == 'fast'    Execute Fast Search and Save Data
+    ...    ELSE    Execute Parametrized Direct Search and Save Data        
+    Apply Transformations To Result
+    Save Search Result Into CSV
     
-Execute Parametrized Direct Search and Return Data
+Execute Parametrized Direct Search and Save Data
     ${link_list}=    Return Links of Direct Search
-    ${variable_list}=    Iterate Pages from List and Return Variables    ${link_list}
-    [return]    ${variable_list}
+    Iterate Pages from List and Save Variables    ${link_list}
     
-Execute Fast Search and Return Data
-    ${variable_list}=    Create List
+Execute Fast Search and Save Data
+    ${result_data_list}    Create List
     FOR    ${i}    IN RANGE    0    ${search_limit}
         ${n}=    Evaluate    ${i}+${url_count_start}    
         ${count}=    Go To Nth Searched Page and Return Auction Count    ${n} 
@@ -88,12 +87,12 @@ Execute Fast Search and Return Data
         Continue For Loop If    ${count} == -1        
         ${start}=    Get Element Count    ${property_pinned_css}
         ${variable_list_page}=    Return Variables on Search Page    ${start}    ${count}
-        ${variable_list}=    Combine Lists    ${variable_list}    ${variable_list_page}
+        ${result_data_list}=    Combine Lists    ${result_data_list}    ${variable_list_page}
         ${log_message}=    Catenate    Found    ${count}    properties on page    ${n}
         Log    ${log_message}    DEBUG    console=yes        
     END
-    ${variable_list}=    Remove Duplicates    ${variable_list}
-    [return]    ${variable_list}
+    ${result_data_list}=    Remove Duplicates    ${result_data_list}
+    Set Test Variable    ${result_data}    ${result_data_list}
     
 Execute Fast
     FOR    ${i}    IN RANGE    0    ${search_limit}
