@@ -29,4 +29,6 @@ ${search_limit}    set_from_parameter
 ${search_type}    set_from_parameter
 ${variable_header}    set_from_config
 ${variables_tags_list}    set_from_config
+${transformations_list}    set_from_config
+${result_data}    set_during_execution    
  

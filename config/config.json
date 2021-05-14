@@ -84,7 +84,8 @@
       "name" : "Aktualizace",
       "locator" : "//label[.='Aktualizace:']/following-sibling::strong",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
-      "type" : [ "basic", "detail" ]
+      "type" : [ "basic", "detail" ],
+      "transformations":["dnes_vcera"]
     }, {
       "name" : "Stavba",
       "locator" : "//label[.='Stavba:']/following-sibling::strong",
