@@ -87,7 +87,7 @@ case "komercni-nemovitosti":
 	choices = ["kancelare","obchody","sklady","vyroba","ubytovani","restaurace","najemni-domy","zemedelsky","jine","all"]
 	break
 case "male-objekty-garaze":
-	choices = [""all"]
+	choices = ["all"]
 	break
 default:
 	choices = ["all"]
@@ -100,7 +100,7 @@ return choices
 				''')
                 fallbackScript('return ["all"]')
             }
-            referencedParameter("['Realty', 'Source']") 
+            referencedParameter('Realty, Source') 
         }
         choiceParam(
         	'Age', ['all','dnes','tyden','mesic']
