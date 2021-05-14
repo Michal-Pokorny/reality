@@ -100,7 +100,7 @@ return choices
 				''')
                 fallbackScript('return ["all"]')
             }
-            referencedParameter('Realty', 'Source')
+            referencedParameters('Realty', 'Source')
         }
         choiceParam(
         	'Age', ['all','dnes','tyden','mesic']
