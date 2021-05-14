@@ -50,6 +50,8 @@ return choices
             choiceType('SINGLE_SELECT')
             groovyScript {
                 script('''def choices
+switch(Source){
+case "sreality":
 switch(Realty){
 case "byty":
     choices = ["1+kk","1+1","2+kk","2+1","3+kk","3+1","4+kk","4+1","5+kk","5+1","6-a-vice","atypicky","all"]
@@ -69,11 +71,36 @@ case "ostatni":
 default:
 	choices = ["all"]
 	break}
+break	
+case "idnes":
+switch(Realty){
+case "byty":
+    choices = ["1+kk","1+1","2+kk","2+1","3+kk","3+1","4+kk","4+1","5+kk","atypicke","all"]
+    break
+case "domy":
+	choices = ["rodinne","chata-chalupa","na-klic","jine","all"]
+	break
+case "pozemky":
+	choices = ["stavebni-pozemek","pro-komercni-vyuziti","zemedelsky","les","zahrady","louka","vodni-plocha","jine","all"]
+	break
+case "komercni-nemovitosti":
+	choices = ["kancelare","obchody","sklady","vyroba","ubytovani","restaurace","najemni-domy","zemedelsky","jine","all"]
+	break
+case "male-objekty-garaze":
+	choices = [""all"]
+	break
+default:
+	choices = ["all"]
+	break}
+break
+default:
+choices = ["all"]
+break}             
 return choices
 				''')
                 fallbackScript('return ["all"]')
             }
-            referencedParameter('Realty')
+            referencedParameter('Realty', 'Source')
         }
         choiceParam(
         	'Age', ['all','dnes','tyden','mesic']

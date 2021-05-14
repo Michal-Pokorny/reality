@@ -24,15 +24,7 @@ Set Parametrized Description
     Set Test Variable    ${search_desc}     ${desc}    
 
 Set Parametrized Search Limit
-    Run Keyword If    ${search_limit} == 0    Set Test Variable    ${search_limit}    99999
-    
-Set Test Variables from Config
-    ${config_url}=    Config Return Variable    url
-    Set Test Variable    ${url}    ${config_url}
-    ${config_variable_header}=    Return Property Variable Names
-    Set Test Variable    ${variable_header}    ${config_variable_header}
-    ${config_variables_tags_list}=    Return Property Variable Tags
-    Set Test Variable    ${variables_tags_list}    ${config_variables_tags_list}
+    Run Keyword If    ${search_limit} == 0    Set Test Variable    ${search_limit}    99999    
     
 Set Constant Test Variables
     Set Test Variable    ${auctionplace}    sreality
@@ -50,20 +42,4 @@ Get Custom Timestamp
     
 Set Custom Timestamp
     ${timestamp}=    Get Custom Timestamp
-    Set Test Variable    ${starttime}    ${timestamp}            
-    
-Return Property Variable Tags
-    ${variables_tags}=    Config Return Property Variable List    locator    ${search_type}    ${realty}
-    [return]    ${variables_tags}
-    
-Return Property Variable Names
-    ${variables_names}=    Config Return Property Variable List    name    ${search_type}    ${realty}
-    [return]    ${variables_names}
-    
-Return Search Strings
-    ${search_strings}=    Config Return Variable List    search    url
-    [return]    ${search_strings}
-    
-Return Search Descriptions
-    ${search_strings}=    Config Return Variable List    search    desc
-    [return]    ${search_strings}
+    Set Test Variable    ${starttime}    ${timestamp}                
