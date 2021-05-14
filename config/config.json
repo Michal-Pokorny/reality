@@ -263,24 +263,24 @@
       "page_assert_css" : "css:.header__menu.m-main__toggle",
       "page_assert_text" : "Menu",
       "page_error_css" : "css:.b-intro__title",
-      "property_link_css" : "css:.c-list-products__link",
+      "property_link_css" : "css:.c-products__link",
       "property_link_attribute" : "href",
       "property_assert_css" : "css:.b-detail__title",
       "property_pinned_css" : "css:.labels .labels__item.labels__item--secondary"
     },
     "property_variables" : [ {
       "name" : "Název",
-      "locator" : "css:.c-list-products__title",
+      "locator" : "css:.c-products__title",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
       "name" : "Adresa",
-      "locator" : "css:.c-list-products__info",
+      "locator" : "css:.c-products__info",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
       "name" : "Cena",
-      "locator" : "css:.c-list-products__price",
+      "locator" : "css:.c-products__price",
       "realty" : [ "byty","domy","pozemky","komercni-nemovitosti","male-objekty-garaze" ],
       "type" : [ "fast" ]
     }, {
