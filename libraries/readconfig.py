@@ -1,8 +1,6 @@
 import json
 import datetime
 from robot.libraries.BuiltIn import BuiltIn
-from robotide.editor.dialoghelps import row
-from adodbapi.examples.xls_write import data
 
 def config_set_test_variables():
     file = open('config/config.json', encoding="utf-8")
