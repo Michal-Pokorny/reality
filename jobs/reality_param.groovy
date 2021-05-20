@@ -9,13 +9,13 @@ pipeline {
         }
         stage('Prepare Docker') {
             steps {
-                powershell '''docker-compose build'''
+                bash '''docker-compose build'''
             }
         }
         stage('Run Test') {
             steps {
                 echo "Executing: docker-compose run robot robot --include Param --variable auctionplace:${env.Source} --variable auction_type:${env.Type} --variable realty:${env.Realty} --variable location:${env.Location} --variable size:${env.Size} --variable starttime:${env.BUILD_TIMESTAMP_PATH} --variable search_limit:${env.Search_limit} --variable search_type:${env.Search_type} --variable age:${env.Age} execution/reality.robot"
-                powershell "docker-compose run robot robot --include Param --variable auctionplace:${env.Source} --variable auction_type:${env.Type} --variable realty:${env.Realty} --variable location:${env.Location} --variable size:${env.Size} --variable starttime:${env.BUILD_TIMESTAMP_PATH} --variable search_limit:${env.Search_limit} --variable search_type:${env.Search_type} --variable age:${env.Age} execution/reality.robot"                
+                bash "docker-compose run robot robot --include Param --variable auctionplace:${env.Source} --variable auction_type:${env.Type} --variable realty:${env.Realty} --variable location:${env.Location} --variable size:${env.Size} --variable starttime:${env.BUILD_TIMESTAMP_PATH} --variable search_limit:${env.Search_limit} --variable search_type:${env.Search_type} --variable age:${env.Age} execution/reality.robot"                
             }
         }
         stage('Send E-mail') {
