@@ -10,6 +10,10 @@ Resource   ../variables.robot
 
 *** Keywords ***
 Open Browser with no Page
+    Run Keyword If    '${engine} == windows'    Open Chrome with no Page
+    ...    ELSE    Open Firefox with no Page
+
+Open Chrome with no Page
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${chrome_options}    add_argument    test-type
     Call Method    ${chrome_options}    add_argument    --disable-extensions

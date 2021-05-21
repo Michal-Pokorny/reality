@@ -32,22 +32,22 @@
       "type" : [ "fast" ]
     }, {
       "name" : "Název",
-      "locator" : "css:.property-title .name",
+      "locator" : "css:.property-title .name.ng-binding",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Adresa",
-      "locator" : "css:.property-title .location-text",
+      "locator" : "css:.property-title .location-text.ng-binding",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Cena",
-      "locator" : "css:.property-title .norm-price",
+      "locator" : "css:.property-title .norm-price.ng-binding",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Popis",
-      "locator" : "css:.description",
+      "locator" : "css:.description.ng-binding",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {

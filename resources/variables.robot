@@ -4,6 +4,7 @@ ${error_limit}    5
 ${custom_timestamp}    %Y%m%d_%H%M%S    
 ${timeout}    10 seconds
 ${result_folder}    results
+${engine}    windows
 ${auctionplace}    set_from_parameter
 ${url}    set_from_config
 ${url_count_string}    set_from_config
