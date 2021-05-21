@@ -64,7 +64,9 @@ Iterate Pages from List and Save Variables
         ${pass}=    Check for Errors
         Continue For Loop If    ${pass} == False            
         ${variables_list}=    Return Property Variable List    ${search_url}            
-        Append To List    ${result_data_list}    ${variables_list}       
+        Append To List    ${result_data_list}    ${variables_list}
+        ${log_message}=    Catenate    Saved variables from    ${search_url}    
+        Log    ${log_message}    DEBUG    console=yes       
     END
     Set Test Variable    ${result_data}    ${result_data_list}
     
