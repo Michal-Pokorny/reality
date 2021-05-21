@@ -29,11 +29,11 @@ pipeline {
                 cleanWs(patterns: [[pattern: 'results.zip', type: 'INCLUDE']])
             }
         }
-        stage('Publish Results') {
-            steps {
-                robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
-            }
-        }
+    }
+    post {
+    	always{
+    		robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
+    	}
     }
 }
 
