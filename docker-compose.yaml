@@ -4,7 +4,7 @@ services:
     build:
       context: '.'
       dockerfile: './dockerfile'
-      shm_size: '2gb'
+      shm_size: '3gb'
     volumes:
       - ./:/robot
     ulimits:
