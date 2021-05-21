@@ -6,7 +6,7 @@ Library    DateTime
 Library    Selenium2Library
 Library    ../libraries/csvlib.py
 Library    ../libraries/readconfig.py
-Test Setup    Open Browser with no Page
+Test Setup    Open Firefox with no Page
 Test Teardown    Close Browser
 Resource    ../resources/variables.robot
 Resource    ../resources/keywords/main.robot                

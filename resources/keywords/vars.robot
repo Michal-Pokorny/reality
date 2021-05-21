@@ -28,13 +28,13 @@ Set Parametrized Search Limit
     
 Set Constant Test Variables
     Set Test Variable    ${auctionplace}    sreality
-    Set Test Variable    ${search_type}    basic
-    Set Test Variable    ${search_limit}    2
+    Set Test Variable    ${search_type}    fast
+    Set Test Variable    ${search_limit}    1
     Set Test Variable    ${auction_type}    prodej
     Set Test Variable    ${realty}    byty
     Set Test Variable    ${location}    praha
     Set Test Variable    ${size}    1+1
-    Set Test Variable    ${age}    tyden
+    Set Test Variable    ${age}    all
                  
 Get Custom Timestamp
     ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
