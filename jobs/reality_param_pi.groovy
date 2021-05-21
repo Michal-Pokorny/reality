@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Prepare Docker') {
             steps {
-                sh '''docker-compose build'''
+                sh '''docker-compose -f docker-compose_pi.yaml build'''
             }
         }
         stage('Run Test') {
