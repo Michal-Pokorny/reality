@@ -23,6 +23,12 @@ Open Browser with no Page
     Maximize Browser Window
     Set Selenium Timeout 	${timeout}
     
+Open Firefox with no Page
+    Open Browser    about:blank    headlessfirefox
+    Set Screenshot Directory    screenshots
+    Maximize Browser Window
+    Set Selenium Timeout 	${timeout}    
+    
 Reset Browser
     Close Browser
     Open Browser with no Page           
