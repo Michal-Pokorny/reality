@@ -32,7 +32,9 @@ pipeline {
     }
     post {
     	always{
-    		robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
+    		robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''    		
+    	}
+    	failure{
     		script {
 	    		if (fileExists('core')) {
 	        		new File('core').delete()
