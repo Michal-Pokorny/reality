@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Prepare Docker') {
             steps {
-                sh '''docker-compose -f docker-compose_pi.yaml build'''
+                sh '''docker-compose --compatibility -f docker-compose_pi.yaml build'''
             }
         }
         stage('Run Test') {
@@ -33,6 +33,9 @@ pipeline {
     post {
     	always{
     		robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
+    		if (fileExists('core')) {
+        		new File('core').delete()
+    		}
     	}
     }
 }
