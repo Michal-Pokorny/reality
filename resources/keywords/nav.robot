@@ -29,7 +29,7 @@ Open Chrome with no Page
     Set Selenium Timeout 	${timeout}
     
 Open Firefox with no Page
-    Open Browser    about:blank    headlessfirefox
+    Open Browser    about:blank    firefox
     Set Screenshot Directory    screenshots
     Maximize Browser Window
     Set Selenium Timeout 	${timeout}    

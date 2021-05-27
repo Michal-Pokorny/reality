@@ -46,7 +46,7 @@ Get Texts For Webelements
 Get Text or Checkmark
     [arguments]    ${variable_tag}
     Wait Until Element Is Visible    ${variable_tag}    
-    ${text}=    Get Element Attribute    ${variable_tag}    innerHTML
+    ${text}=    Get Text    ${variable_tag}
     ${length}=    Get Length    ${text}    
     #${length}=    Run Keyword If    ${text} != None    Get Length    ${text}
     #...    ELSE    Set Variable    1
