@@ -11,7 +11,7 @@ Resource   ../variables.robot
 *** Keywords ***
 Open Browser with no Page
     Log    ${engine}
-    Run Keyword If    '${engine} == windows'    Open Chrome with no Page
+    Run Keyword If    '${engine}' == 'windows'    Open Chrome with no Page
     ...    ELSE    Open Firefox with no Page
 
 Open Chrome with no Page
