@@ -12,7 +12,7 @@ services:
         limits:
           memory: 4G
         reservations:
-          memory: 2G	  
+          memory: 2G
     ulimits:
       core:
         hard: 0
