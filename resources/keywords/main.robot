@@ -1,12 +1,14 @@
 *** Settings ***
+Documentation    Resource file containing high-level keywords for scraping data and saving it to csv
 Library    String
 Library    Collections
 Library    OperatingSystem
 Library    DateTime 
 Library    Selenium2Library
-Library    ../../libraries/csvlib.py
-Library    ../../libraries/readconfig.py
-Resource    ../variables.robot
+Library    ../libraries/csvlib.py
+Library    ../libraries/readconfig.py
+Resource    ../variables/technical.robot
+Resource    ../variables/runtime.robot
 Resource    vars.robot
 Resource    read.robot
 Resource    nav.robot

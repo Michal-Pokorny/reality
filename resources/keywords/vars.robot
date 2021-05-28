@@ -1,12 +1,6 @@
 *** Settings ***
-Library    String
-Library    Collections
-Library    OperatingSystem
-Library    DateTime 
-Library    Selenium2Library
-Library    ../../libraries/csvlib.py
-Library    ../../libraries/readconfig.py
-Resource   ../variables.robot
+Documentation    Resource file containing keywords for setting runtime specific variables
+Resource   main.robot
 
 *** Keywords ***
 Set Test Variables from Parameters
@@ -27,19 +21,15 @@ Set Parametrized Search Limit
     Run Keyword If    ${search_limit} == 0    Set Test Variable    ${search_limit}    99999    
     
 Set Constant Test Variables
-    Set Test Variable    ${auctionplace}    sreality
+    Set Test Variable    ${auctionplace}    idnes
     Set Test Variable    ${search_type}    fast
-    Set Test Variable    ${search_limit}    1
+    Set Test Variable    ${search_limit}    0
     Set Test Variable    ${auction_type}    prodej
     Set Test Variable    ${realty}    byty
-    Set Test Variable    ${location}    praha
-    Set Test Variable    ${size}    1+1
-    Set Test Variable    ${age}    all
-                 
-Get Custom Timestamp
-    ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
-    [return]    ${timestamp}
+    Set Test Variable    ${location}    all
+    Set Test Variable    ${size}    all
+    Set Test Variable    ${age}    dnes                 
     
 Set Custom Timestamp
-    ${timestamp}=    Get Custom Timestamp
+    ${timestamp}=    Get Current Date    result_format=${custom_timestamp}
     Set Test Variable    ${starttime}    ${timestamp}                
