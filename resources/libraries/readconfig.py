@@ -3,7 +3,7 @@ import datetime
 from robot.libraries.BuiltIn import BuiltIn
 
 def config_set_test_variables():
-    file = open('config/config.json', encoding="utf-8")
+    file = open('resources/config/config.json', encoding="utf-8")
     auctionplace = BuiltIn().get_variable_value("${auctionplace}")
     data = json.load(file)
     list = data[auctionplace]["test_variables"]
@@ -18,13 +18,13 @@ def config_set_test_variables():
     BuiltIn().set_test_variable("${transformations_list}", config_return_transformations_list(type, realty, auctionplace))
 
 def config_return_variable(var_name):
-    file = open('config/config.json', encoding="utf-8")
+    file = open('resources/config/config.json', encoding="utf-8")
     auctionplace = BuiltIn().get_variable_value("${auctionplace}")
     data = json.load(file)    
     return data[auctionplace][var_name]
 
 def config_return_variable_list(list_name, var_name):
-    file = open('config/config.json', encoding="utf-8")
+    file = open('resources/config/config.json', encoding="utf-8")
     auctionplace = BuiltIn().get_variable_value("${auctionplace}")
     data = json.load(file)
     list = data[auctionplace][list_name]
@@ -68,7 +68,7 @@ def config_return_search_string(source, type, realty, location="all", size="all"
     return search_string
 
 def config_return_property_variable_list(var_name, type, realty, auctionplace):
-    file = open('config/config.json', encoding="utf-8")
+    file = open('resources/config/config.json', encoding="utf-8")
     data = json.load(file)
     list = data[auctionplace]['property_variables']
     result = []
@@ -78,7 +78,7 @@ def config_return_property_variable_list(var_name, type, realty, auctionplace):
     return result
 
 def config_return_transformations_list(type, realty, auctionplace):
-    file = open('config/config.json', encoding="utf-8")
+    file = open('resources/config/config.json', encoding="utf-8")
     data = json.load(file)
     list = data[auctionplace]['property_variables']
     result = []

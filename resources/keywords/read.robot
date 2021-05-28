@@ -1,12 +1,6 @@
 *** Settings ***
-Library    String
-Library    Collections
-Library    OperatingSystem
-Library    DateTime 
-Library    Selenium2Library
-Library    ../../libraries/csvlib.py
-Library    ../../libraries/readconfig.py
-Resource   ../variables.robot
+Documentation    Resource file containing keywords for reading and saving data from scraped website
+Resource   main.robot
 
 *** Keywords ***
 Return Property Variable List
