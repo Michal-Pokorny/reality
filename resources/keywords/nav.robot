@@ -29,7 +29,7 @@ Open Chrome with no Page
     Set Selenium Timeout 	${timeout}
     
 Open Firefox with no Page
-    Open Browser    about:blank    phantomjs
+    Open Browser    about:blank    headlessfirefox
     Set Screenshot Directory    screenshots
     Maximize Browser Window
     Set Selenium Timeout 	${timeout}    
