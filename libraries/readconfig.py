@@ -56,14 +56,12 @@ def config_return_search_string(source, type, realty, location="all", size="all"
             search_string += "/" + location
         search_string += "?"
         if age != "all":
-            if age == "den":
+            if age == "dnes":
                 age_string = "s-qc[articleAge]=1&"
             elif age == "tyden":
                 age_string = "s-qc[articleAge]=7&"
             elif age == "mesic":
-                age_string = "s-qc[articleAge]=31&"
-            else:
-                age_string = ""    
+                age_string = "s-qc[articleAge]=31&"    
             search_string += age_string           
         if optional:
             search_string += optional                            
