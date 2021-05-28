@@ -1,5 +1,7 @@
 FROM arm32v7/python:3.8
 
+ENV OPENSSL_FLAGS='no-idea no-mdc2 no-rc5 no-zlib enable-tlsext no-ssl2 no-ssl3 no-ssl3-method enable-rfc3779 enable-cms'
+
 RUN apt-get -y update
 RUN apt-get -y upgrade
 
