@@ -47,7 +47,7 @@
       "type" : [ "basic", "detail" ]
     }, {
       "name" : "Popis",
-      "locator" : "css:.description.ng-binding",
+      "locator" : "css:.description.ng-binding p",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
@@ -67,183 +67,183 @@
       "type" : [ "detail" ]
     }, {
       "name" : "Celková cena",
-      "locator" : "//label[.='Celková cena:']/following-sibling::strong",
+      "locator" : "//label[.='Celková cena:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Cena za m²",
-      "locator" : "//label[.='Cena za m²:']/following-sibling::strong",
+      "locator" : "//label[.='Cena za m²:']/following-sibling::strong/span",
       "realty" : [ "pozemky" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Poznámka k ceně",
-      "locator" : "//label[.='Poznámka k ceně:']/following-sibling::strong",
+      "locator" : "//label[.='Poznámka k ceně:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "ID zakázky",
-      "locator" : "//label[.='ID zakázky:']/following-sibling::strong",
+      "locator" : "//label[.='ID zakázky:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Aktualizace",
-      "locator" : "//label[.='Aktualizace:']/following-sibling::strong",
+      "locator" : "//label[.='Aktualizace:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "basic", "detail" ],
       "transformations":["dnes_vcera"]
     }, {
       "name" : "Stavba",
-      "locator" : "//label[.='Stavba:']/following-sibling::strong",
+      "locator" : "//label[.='Stavba:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Stav objektu",
-      "locator" : "//label[.='Stav objektu:']/following-sibling::strong",
+      "locator" : "//label[.='Stav objektu:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Vlastnictví",
-      "locator" : "//label[.='Vlastnictví:']/following-sibling::strong",
+      "locator" : "//label[.='Vlastnictví:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Poloha domu",
-      "locator" : "//label[.='Poloha domu:']/following-sibling::strong",
+      "locator" : "//label[.='Poloha domu:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     },{
       "name" : "Umístění objektu",
-      "locator" : "//label[.='Umístění objektu:']/following-sibling::strong",
+      "locator" : "//label[.='Umístění objektu:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Podlaží",
-      "locator" : "//label[.='Podlaží:']/following-sibling::strong",
+      "locator" : "//label[.='Podlaží:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Typ domu",
-      "locator" : "//label[.='Typ domu:']/following-sibling::strong",
+      "locator" : "//label[.='Typ domu:']/following-sibling::strong/span",
       "realty" : [ "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Užitná plocha",
-      "locator" : "//label[.='Užitná plocha:']/following-sibling::strong",
+      "locator" : "//label[.='Užitná plocha:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Plocha zastavěná",
-      "locator" : "//label[.='Plocha zastavěná:']/following-sibling::strong",
+      "locator" : "//label[.='Plocha zastavěná:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Plocha podlahová",
-      "locator" : "//label[.='Plocha podlahová:']/following-sibling::strong",
+      "locator" : "//label[.='Plocha podlahová:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Plocha pozemku",
-      "locator" : "//label[.='Plocha pozemku:']/following-sibling::strong",
+      "locator" : "//label[.='Plocha pozemku:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Plocha zahrady",
-      "locator" : "//label[.='Plocha zahrady:']/following-sibling::strong",
+      "locator" : "//label[.='Plocha zahrady:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Balkón",
-      "locator" : "//label[.='Balkón:']/following-sibling::strong",
+      "locator" : "//label[.='Balkón:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Lodžie",
-      "locator" : "//label[.='Lodžie:']/following-sibling::strong",
+      "locator" : "//label[.='Lodžie:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Sklep",
-      "locator" : "//label[.='Sklep:']/following-sibling::strong",
+      "locator" : "//label[.='Sklep:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Parkování",
-      "locator" : "//label[.='Parkování:']/following-sibling::strong",
+      "locator" : "//label[.='Parkování:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Garáž",
-      "locator" : "//label[.='Garáž:']/following-sibling::strong",
+      "locator" : "//label[.='Garáž:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Voda",
-      "locator" : "//label[.='Voda:']/following-sibling::strong",
+      "locator" : "//label[.='Voda:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Topení",
-      "locator" : "//label[.='Topení:']/following-sibling::strong",
+      "locator" : "//label[.='Topení:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Rok kolaudace",
-      "locator" : "//label[.='Rok kolaudace:']/following-sibling::strong",
+      "locator" : "//label[.='Rok kolaudace:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Telekomunikace",
-      "locator" : "//label[.='Telekomunikace:']/following-sibling::strong",
+      "locator" : "//label[.='Telekomunikace:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Elektřina",
-      "locator" : "//label[.='Elektřina:']/following-sibling::strong",
+      "locator" : "//label[.='Elektřina:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Doprava",
-      "locator" : "//label[.='Doprava:']/following-sibling::strong",
+      "locator" : "//label[.='Doprava:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Energetická náročnost budovy",
-      "locator" : "//label[.='Energetická náročnost budovy:']/following-sibling::strong",
+      "locator" : "//label[.='Energetická náročnost budovy:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Odpad",
-      "locator" : "//label[.='Odpad:']/following-sibling::strong",
+      "locator" : "//label[.='Odpad:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Komunikace",
-      "locator" : "//label[.='Komunikace:']/following-sibling::strong",
+      "locator" : "//label[.='Komunikace:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Ukazatel energetické náročnosti budovy",
-      "locator" : "//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong",
+      "locator" : "//label[.='Ukazatel energetické náročnosti budovy:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Vybavení",
-      "locator" : "//label[.='Vybavení:']/following-sibling::strong",
+      "locator" : "//label[.='Vybavení:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Bezbariérový",
-      "locator" : "//label[.='Bezbariérový:']/following-sibling::strong",
+      "locator" : "//label[.='Bezbariérový:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Výtah",
-      "locator" : "//label[.='Výtah:']/following-sibling::strong",
+      "locator" : "//label[.='Výtah:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
       "name" : "Datum nastěhování",
-      "locator" : "//label[.='Datum nastěhování:']/following-sibling::strong",
+      "locator" : "//label[.='Datum nastěhování:']/following-sibling::strong/span",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "detail" ]
     }, {
