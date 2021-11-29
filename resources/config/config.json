@@ -52,7 +52,7 @@
       "type" : [ "detail" ]
     }, {
       "name" : "Kontakt",
-      "locator" : "css:.seller-name",
+      "locator" : "css:.seller-name a",
       "realty" : [ "byty", "domy", "pozemky", "komercni", "ostatni" ],
       "type" : [ "basic", "detail" ]
     }, {
